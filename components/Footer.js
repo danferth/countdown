@@ -1,6 +1,7 @@
 import React from "react";
-import { ReactComponent as Akio } from "../images/svg/akio.svg";
-
+// import Image from "next/image";
+// import Akio from "../images/svg/akio.svg";
+import Akio from "../components/Akio";
 const Footer = () => {
   return (
     <div className="mt-auto flex items-center justify-between lg:justify-center xl:justify-end py-2 xl:py-3.5 px-5 md:px-8 w-full bg-white dark:bg-gray-800 transition">

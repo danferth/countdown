@@ -9,10 +9,10 @@ export default function Home() {
       {/* <AnimateSharedLayout> */}
       <div className="flex-grow flex flex-col items-center justify-evenly md:justify-center lg:flex-row lg:px-20 min-w-full z-10 bg-white dark:bg-gray-800 transition">
         <Cooper />
-        {/* <Card /> */}
+        <Card />
       </div>
       {/* </AnimateSharedLayout> */}
-      {/* <Footer /> */}
+      <Footer />
     </main>
   );
 }
