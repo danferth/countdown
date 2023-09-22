@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useRef } from "react";
 import cooper from "../images/cooper.jpg";
 import Image from "next/image";

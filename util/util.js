@@ -1,7 +1,5 @@
 //human readable day of the week
-export const printToday = () => {
-  const date = new Date();
-  const day = date.getDay();
+export const printToday = (day) => {
   let today = "";
   switch (day) {
     case 0:
@@ -26,6 +24,7 @@ export const printToday = () => {
       today = "Saturday";
       break;
     default:
+      today = "Funday";
       break;
   }
 

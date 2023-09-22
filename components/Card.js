@@ -1,4 +1,5 @@
-import React, { useRef } from "react";
+"use client";
+import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useCountdown } from "./useCountdown";
 

@@ -1,17 +1,20 @@
+"useClient";
+
 import { useState, useEffect } from "react";
-import { countdown } from "../util/time";
+import { createStartTarget, findDifference } from "../util/time";
 
 export const useCountdown = () => {
-  const [count, setCount] = useState(countdown());
+  function getDiffForState() {
+    let currentDateObj = new Date();
+    let startSet = createStartTarget(currentDateObj);
+    return findDifference(startSet[0], startSet[1]);
+  }
+
+  const [count, setCount] = useState(getDiffForState);
 
   useEffect(() => {
-    setInterval(() => setCount(countdown()), 1000);
+    const intervalId = setInterval(() => setCount(getDiffForState), 1000);
+    return () => clearInterval(intervalId);
   }, []);
-
-  return {
-    days: count.days,
-    hours: count.hours,
-    minutes: count.minutes,
-    seconds: count.seconds,
-  };
+  return count;
 };

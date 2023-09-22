@@ -1,6 +1,4 @@
 import React from "react";
-// import Image from "next/image";
-// import Akio from "../images/svg/akio.svg";
 import Akio from "../components/Akio";
 const Footer = () => {
   return (
