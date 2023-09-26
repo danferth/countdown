@@ -1,8 +1,8 @@
 import { toSeconds, setTargetDate, setOutput, addZero } from "./util";
 
-function createStartTarget(dateObj) {
+export const countdown = () => {
   // Get time stamp NOW and set variables
-  const now = dateObj,
+  const now = new Date(),
     now_day = now.getDay(),
     now_month = now.getMonth(),
     now_date = now.getDate(),
@@ -24,7 +24,7 @@ function createStartTarget(dateObj) {
     now_date,
     now_hour,
     now_minute,
-    now_second,
+    now_second
   );
 
   //set target time
@@ -34,14 +34,11 @@ function createStartTarget(dateObj) {
     target_date,
     target_hour,
     target_minute,
-    target_second,
+    target_second
   );
-  return [start_now, start_target];
-}
 
-function findDifference(start, target) {
   //set differances for time frames
-  const diff = toSeconds(target - start);
+  const diff = toSeconds(start_target - start_now);
   const days = setOutput(diff, 86400);
   const hours = setOutput(diff, 3600) - days * 24;
   const minutes = setOutput(diff, 60) - (hours * 60 + days * 1440);
@@ -55,6 +52,4 @@ function findDifference(start, target) {
     minutes: addZero(minutes),
     seconds: addZero(seconds),
   };
-}
-
-export { createStartTarget, findDifference };
+};
