@@ -1,11 +1,19 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { useCountdown } from "./useCountdown";
-
+import { countdown } from "@/util/countdown";
 const Card = () => {
-  const theCount = useRef();
-  theCount.current = useCountdown();
+  const [clock, setClock] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  useEffect(() => {
+    setInterval(() => setClock(countdown()), 1000);
+  }, []);
+
   const variants = {
     initial: { opacity: 0 },
     animate: {
@@ -22,14 +30,10 @@ const Card = () => {
       className="w-full px-8 md:px-12 lg:p-0 lg:w-8/12 lg:ml-auto xl:w-6/12 xl:mx-auto"
     >
       <div className="grid gap-2.5 md:gap-3.5 xl:gap-5 grid-cols-2 sm:grid-cols-4 sm:grid-rows-2 xl:grid-cols-2 xl:grid-rows-1">
-        <Days count={theCount.current.days}>{theCount.current.days}</Days>
-        <Hours count={theCount.current.hours}>{theCount.current.hours}</Hours>
-        <Minutes count={theCount.current.minutes}>
-          {theCount.current.minutes}
-        </Minutes>
-        <Seconds count={theCount.current.seconds}>
-          {theCount.current.seconds}
-        </Seconds>
+        <Days count={clock.days}>{clock.days}</Days>
+        <Hours count={clock.hours}>{clock.hours}</Hours>
+        <Minutes count={clock.minutes}>{clock.minutes}</Minutes>
+        <Seconds count={clock.seconds}>{clock.seconds}</Seconds>
       </div>
       <p className="cursive text-center mt-6 sm:mt-3 md:mt-10 md:text-lg text-base font-medium font-serif text-gray-400 dark:text-gray-400 transition">
         Until Friday 5:00 pm
