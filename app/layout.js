@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 import Footer from "../components/Footer";
+import ThemeSetter from "../components/ThemeSetter";
 import Navigation from "../components/Navigation";
-
 export const metadata = {
   title: "Friday Countdown",
   description: "It's friday mutha fucka",
@@ -10,10 +10,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
-        <main className="flex flex-col min-h-screen max-h-screen">
+      <body className="bg-white dark:bg-gray-800 transition">
+        <main className="flex flex-col h-screen container mx-auto px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-800 transition">
           <Navigation />
-          <div className="flex-grow flex flex-col items-center justify-evenly md:justify-center lg:flex-row lg:px-20 min-w-full z-10 bg-white dark:bg-gray-800 transition">
+          <ThemeSetter />
+          <div className="flex-grow bg-white dark:bg-gray-800 transition">
             {children}
           </div>
           <Footer />
