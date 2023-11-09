@@ -2,7 +2,22 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { countdown } from "@/util/countdown";
+import useSettings from "../components/useSettings";
 const Card = () => {
+  // zustand state
+  const isRepeat = useSettings((state) => state.isRepeat);
+  const setIsRepeat = useSettings((state) => state.setIsRepeat);
+
+  const countdownDestination = useSettings(
+    (state) => state.countdownDestination
+  );
+  const setCountdownDestination = useSettings(
+    (state) => state.setCountdownDestination
+  );
+
+  const timeZone = useSettings((state) => state.timeZone);
+  const setTimeZone = useSettings((state) => state.setTimeZone);
+
   const [clock, setClock] = useState({
     days: 0,
     hours: 0,
@@ -21,6 +36,7 @@ const Card = () => {
       transition: { type: "tween", delay: 1, duration: 0.5, ease: "easeIn" },
     },
   };
+
   return (
     <motion.div
       layout="true"

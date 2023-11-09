@@ -1,47 +1,26 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import useTheme from "./useTheme";
 export default function ThemeSetter() {
-  const [isLightTrue, setIsLightTrue] = useState(true);
+  const isLight = useTheme((state) => state.isLight);
+  const onSystem = useTheme((state) => state.onSystem);
+  const setIsLight = useTheme((state) => state.setIsLight);
+  const setOnSystem = useTheme((state) => state.setOnSystem);
 
   useEffect(() => {
-    const isLocalSet = localStorage.getItem("isLight");
-    const isSystemLight = window.matchMedia(
-      "(prefers-color-scheme: light)"
-    ).matches;
-
-    if (isLocalSet === null) {
-      setIsLightTrue(isSystemLight);
-      localStorage.setItem("isLight", isSystemLight);
-    } else if (isLocalSet != null) {
-      setIsLightTrue(isLocalSet === "true" ? true : false);
-    }
-  }, []);
-
-  useEffect(() => {
-    isLightTrue
-      ? document.documentElement.classList.remove("dark")
-      : document.documentElement.classList.add("dark");
-  }, [isLightTrue]);
-
-  function localCheckAndSet(key, value) {
-    if (document.window !== "undefined") {
-      const currentLocal = localStorage.getItem(key);
-      if (currentLocal !== null) {
-        localStorage.setItem(key, value);
-      }
-    }
-  }
+    // if (onSystem) {
+    //   setIsLight(window.matchMedia("(prefers-color-scheme: light)").matches);
+    // }
+    console.log("on component", isLight);
+  }, [isLight]);
 
   return (
     <div className="absolute right-0 top-20 z-50 bg-gray-100 ring-2 ring-blue-200 dark:bg-gray-600 dark:ring-orange-500 pr-8 py-1.5 pl-1.5 rounded-l-full">
       <button
         className="p-1.5 rounded-full bg-gray-800 dark:bg-yellow-50"
-        onClick={() => {
-          setIsLightTrue(!isLightTrue);
-          localCheckAndSet("isLight", !isLightTrue);
-        }}
+        onClick={() => setIsLight()}
       >
-        {isLightTrue ? (
+        {isLight ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
