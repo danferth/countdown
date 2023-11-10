@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import cooper from "../images/cooper.jpg";
+import kanye from "../images/kanye.webp";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import getQuote from "./getQuote";
@@ -47,8 +47,8 @@ const Cooper = () => {
         <div className="flex-shrink-0 relative md:shadow-md h-0 w-14 pt-14 md:w-24 md:pt-24 xl:w-36 xl:pt-36 md:mb-3 rounded-full overflow-hidden ring-2 xl:ring-4 ring-gray-200 dark:ring-gray-600 transition">
           <Image
             priority={true}
-            src={cooper}
-            alt="cooper"
+            src={kanye}
+            alt="Ye"
             className="absolute top-0 left-0 w-full h-full cover rounded-full"
           />
         </div>
