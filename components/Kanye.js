@@ -6,7 +6,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import getQuote from "./getQuote";
 
-const Cooper = () => {
+const Kanye = () => {
   const [quote, setQuote] = useState();
   const [name, setName] = useState();
 
@@ -66,4 +66,4 @@ const Cooper = () => {
   );
 };
 
-export default Cooper;
+export default Kanye;

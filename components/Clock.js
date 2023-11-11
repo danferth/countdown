@@ -2,8 +2,8 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { countdown } from "@/util/countdown";
-import useSettings from "../components/useSettings";
-const Card = () => {
+import useSettings from "./useSettings";
+const Clock = () => {
   // zustand state
   const isRepeat = useSettings((state) => state.isRepeat);
   const setIsRepeat = useSettings((state) => state.setIsRepeat);
@@ -121,4 +121,4 @@ const Wrap = (props) => {
     </div>
   );
 };
-export default Card;
+export default Clock;
