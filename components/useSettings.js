@@ -9,9 +9,11 @@ const useSettings = create((set) => ({
     set({ repeatDuration: newRepeatDuration }),
 
   destination: DateTime.fromObject({
-    days: 14,
-    hours: 17,
-    minutes: 28,
+    years: 2023,
+    months: 11,
+    days: 17,
+    hours: 16,
+    minutes: 30,
     seconds: 0,
   }),
   setDestination: (newDestination) => set({ destination: newDestination }),

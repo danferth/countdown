@@ -1,3 +1,39 @@
+const Years = (props) => {
+  return (
+    <Wrap
+      grid={`${
+        props.count === 0 ? "hidden" : "block"
+      } col-span-1 sm:col-start-1 sm:col-span-2 xl:col-span-1 xl:col-start-1`}
+    >
+      <div className="flex justify-center flex-col items-center py-2.5 h-full">
+        <span className="text-3xl">{props.children}</span>
+        <span className="text-sm uppercase font-sans font-light leading-none tracking-wide">
+          {props.count === "01" ? `year` : `years`}
+        </span>
+      </div>
+    </Wrap>
+  );
+};
+
+const Months = (props) => {
+  return (
+    <Wrap
+      grid={`${props.count === 0 ? "hidden" : "block"} ${
+        props.previousSibling === 0
+          ? "col-span-2 sm:col-start-1 sm:col-span-4 xl:col-span-2 xl:col-start-1"
+          : "col-span-1 sm:col-start-3 sm:col-span-2 xl:col-span-1 xl:col-start-2"
+      }`}
+    >
+      <div className="flex justify-center flex-col items-center py-2.5 h-full">
+        <span className="text-3xl">{props.children}</span>
+        <span className="text-sm uppercase font-sans font-light leading-none tracking-wide">
+          {props.count === "01" ? `month` : `months`}
+        </span>
+      </div>
+    </Wrap>
+  );
+};
+
 const Days = (props) => {
   return (
     <Wrap grid="col-span-2 sm:row-span-2 xl:row-span-1">
@@ -62,4 +98,4 @@ const Wrap = (props) => {
   );
 };
 
-export { Days, Hours, Minutes, Seconds };
+export { Years, Months, Days, Hours, Minutes, Seconds };

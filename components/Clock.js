@@ -1,7 +1,14 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
-import { Days, Hours, Minutes, Seconds } from "./ClockComponents";
+import {
+  Years,
+  Months,
+  Days,
+  Hours,
+  Minutes,
+  Seconds,
+} from "./ClockComponents";
 import useSettings from "../components/useSettings";
 import { DateTime, Interval } from "luxon";
 
@@ -14,7 +21,6 @@ const Clock = () => {
     minutes: 0,
     seconds: 0,
   };
-  // const [difference, setDifference] = useState(defaultDifference);
   // zustand state to be set from settings page in future
   const isRepeat = useSettings((state) => state.isRepeat);
   const setIsRepeat = useSettings((state) => state.setIsRepeat);
@@ -65,6 +71,7 @@ const Clock = () => {
           ),
         1000
       );
+      console.log(difference);
     }
   });
 
@@ -86,6 +93,10 @@ const Clock = () => {
       className="w-full px-8 md:px-12 lg:p-0 lg:w-8/12 lg:ml-auto xl:w-6/12 xl:mx-auto"
     >
       <div className="grid gap-2.5 md:gap-3.5 xl:gap-5 grid-cols-2 sm:grid-cols-4 sm:grid-rows-2 xl:grid-cols-2 xl:grid-rows-1">
+        <Years count={difference.years}>{difference.years}</Years>
+        <Months count={difference.months} previousSibling={difference.years}>
+          {difference.months}
+        </Months>
         <Days count={difference.days}>{difference.days}</Days>
         <Hours count={difference.hours}>{difference.hours}</Hours>
         <Minutes count={difference.minutes}>{difference.minutes}</Minutes>
@@ -93,8 +104,8 @@ const Clock = () => {
           {Math.floor(difference.seconds)}
         </Seconds>
       </div>
-      <p className="cursive text-center mt-6 sm:mt-3 md:mt-10 md:text-lg text-base font-medium font-serif text-gray-400 dark:text-gray-400 transition">
-        Until Friday 5:00 pm
+      <p className="text-center mt-6 sm:mt-3 md:mt-10 md:text-md text-base font-medium font-serif text-gray-400 dark:text-gray-400 transition">
+        {`daCountdown to ${destination.toLocaleString(DateTime.DATETIME_HUGE)}`}
       </p>
     </motion.div>
   );
