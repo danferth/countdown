@@ -1,13 +1,30 @@
 import { create } from "zustand";
-
+import { DateTime } from "luxon";
 const useSettings = create((set) => ({
   isRepeat: true,
-  countdownDestination: "this friday @ 5pm",
-  timeZone: "PST",
-  setIsRepeat: () => set((state) => ({ isRepeat: state.isRepeat })),
-  setCountdownDestination: () =>
-    set((state) => ({ countdownDestination: state.countdownDestination })),
-  setTimeZone: () => set((state) => ({ timeZone: state.timeZone })),
+  setIsRepeat: (newRepeat) => set({ isRepeat: newRepeat }),
+
+  repeatDuration: "weekly",
+  setRepeatDuration: (newRepeatDuration) =>
+    set({ repeatDuration: newRepeatDuration }),
+
+  destination: DateTime.fromObject({
+    days: 14,
+    hours: 17,
+    minutes: 28,
+    seconds: 0,
+  }),
+  setDestination: (newDestination) => set({ destination: newDestination }),
+
+  difference: {
+    years: 0,
+    months: 0,
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  },
+  setDifference: (newDifference) => set({ difference: newDifference }),
 }));
 
 export default useSettings;

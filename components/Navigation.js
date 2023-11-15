@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ThemeSetter from "./ThemeSetter";
 export default function Navigation() {
   return (
     <div className="navbar bg-gray-50 dark:bg-gray-700 mt-8 mb-4 rounded-lg shadow-md shadow-gray-300 dark:shadow-gray-900 transition">
@@ -69,6 +70,7 @@ export default function Navigation() {
             />
           </svg>
         </Link>
+        <ThemeSetter />
       </div>
     </div>
   );

@@ -1,5 +1,3 @@
-"use client";
-import { useEffect } from "react";
 import useTheme from "./useTheme";
 export default function ThemeSetter() {
   const isLight = useTheme((state) => state.isLight);
@@ -7,19 +5,12 @@ export default function ThemeSetter() {
   const setIsLight = useTheme((state) => state.setIsLight);
   const setOnSystem = useTheme((state) => state.setOnSystem);
 
-  useEffect(() => {
-    // if (onSystem) {
-    //   setIsLight(window.matchMedia("(prefers-color-scheme: light)").matches);
-    // }
-    console.log("on component", isLight);
-  }, [isLight]);
-
   return (
-    <div className="absolute right-0 top-20 z-50 bg-gray-100 ring-2 ring-blue-200 dark:bg-gray-600 dark:ring-orange-500 pr-8 py-1.5 pl-1.5 rounded-l-full">
-      <button
-        className="p-1.5 rounded-full bg-gray-800 dark:bg-yellow-50"
-        onClick={() => setIsLight()}
-      >
+    <button
+      className="btn btn-ghost normal-case text-xl"
+      onClick={() => setIsLight()}
+    >
+      <div className=" bg-gray-600 ring-2 ring-blue-200 dark:bg-gray-100 dark:ring-orange-200 p-0.5 rounded-full flex aligh-center justify-center">
         {isLight ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +42,7 @@ export default function ThemeSetter() {
             />
           </svg>
         )}
-      </button>
-    </div>
+      </div>
+    </button>
   );
 }

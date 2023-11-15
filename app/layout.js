@@ -2,7 +2,6 @@
 
 import "@/styles/globals.css";
 import Footer from "../components/Footer";
-import ThemeSetter from "../components/ThemeSetter";
 import Navigation from "../components/Navigation";
 import useTheme from "@/components/useTheme";
 // export const metadata = {
@@ -12,13 +11,11 @@ import useTheme from "@/components/useTheme";
 
 export default function RootLayout({ children }) {
   const isLight = useTheme((state) => state.isLight);
-  console.log("on layout", isLight);
   return (
     <html lang="en" className={isLight ? "" : "dark"}>
       <body className="bg-white dark:bg-gray-800 transition">
         <main className="flex flex-col h-screen container mx-auto px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-800 transition">
           <Navigation />
-          <ThemeSetter />
           <div className="flex-grow bg-white dark:bg-gray-800 transition">
             {children}
           </div>
