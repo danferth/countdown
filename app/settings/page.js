@@ -38,83 +38,100 @@ export default function Settings() {
       DateTime.fromISO(`${destinationDateInput}T${destinationTimeInput}`)
     );
   }
+  const isDurationShown = `form-control ${
+    isRepeatableInput ? "block" : "hidden"
+  } transition`;
   return (
-    <div>
+    <div className="w-full">
       <div className="prose mb-12">
         <h1 className="text-gray-700 dark:text-gray-200">Settings page</h1>
       </div>
 
       {/* form content for page */}
-      <div className="bg-white p-8 rounded-md max-w-3xl mx-auto">
-        <form ref={settingsForm} onSubmit={(e) => submitHandler(e)}>
+      <div className="bg-white p-8 rounded-md max-w-xl mr-auto">
+        <form
+          ref={settingsForm}
+          onSubmit={(e) => submitHandler(e)}
+          className="w-full h-full space-y-8"
+        >
           {/* datepicker */}
-          <label
-            className="block"
-            htmlFor="destinationDate"
-          >{`destination date: ${destination.toISODate()}`}</label>
+          <div className="form-control">
+            <label
+              className="label"
+              htmlFor="destinationDate"
+            >{`set a new destination date`}</label>
 
-          <input
-            className="block border border-gray-400"
-            type="date"
-            id="destinationDate"
-            name="destinationDate"
-            value={destinationDateInput}
-            min={destination.minus({ months: 3 }).toISODate()}
-            max={destination.plus({ years: 20 }).toISODate()}
-            onChange={(e) => setDestinationDateInput(e.target.value)}
-          />
+            <input
+              className="input bg-white dark:bg-gray-800"
+              type="date"
+              id="destinationDate"
+              name="destinationDate"
+              value={destinationDateInput}
+              min={destination.minus({ months: 3 }).toISODate()}
+              max={destination.plus({ years: 20 }).toISODate()}
+              onChange={(e) => setDestinationDateInput(e.target.value)}
+            />
+          </div>
 
           {/* Time portion */}
-          <label
-            className="block"
-            htmlFor="destinationTime"
-          >{`destination time: ${destination.toISOTime()}`}</label>
+          <div className="form-control">
+            <label
+              className="label"
+              htmlFor="destinationTime"
+            >{`set a new destination time or keep the default`}</label>
 
-          <input
-            className="block border border-gray-400"
-            type="time"
-            id="destinationTime"
-            name="destinationTime"
-            value={destinationTimeInput}
-            onChange={(e) => setDestinationTimeInput(e.target.value)}
-          />
+            <input
+              className="input bg-white dark:bg-gray-800"
+              type="time"
+              id="destinationTime"
+              name="destinationTime"
+              value={destinationTimeInput}
+              onChange={(e) => setDestinationTimeInput(e.target.value)}
+            />
+          </div>
           {/* isreapeat toggle */}
-          <label
-            className="block"
-            htmlFor="isRepeatableInput"
-          >{`Repeatable countdown: ${isRepeatableInput ? "Yes" : "No"}`}</label>
+          <div className="form-control">
+            <label
+              className="label"
+              htmlFor="isRepeatableInput"
+            >{`should the countdown repeat?`}</label>
 
-          <input
-            className="block toggle border border-gray-400"
-            type="checkbox"
-            id="isRepeatableInput"
-            name="isRepeatableInput"
-            checked={isRepeatableInput}
-            onChange={() => setIsRepeatableInput(!isRepeatableInput)}
-          />
+            <input
+              className="input toggle"
+              type="checkbox"
+              id="isRepeatableInput"
+              name="isRepeatableInput"
+              checked={isRepeatableInput}
+              onChange={() => setIsRepeatableInput(!isRepeatableInput)}
+            />
+          </div>
           {/* repeatDuration */}
-          <details ref={dropdownOpen} className="dropdown block">
-            <summary className="m-1 btn">{`Repeat Duration: ${repeatDurationInput}`}</summary>
-            <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-              <li>
-                <button onClick={() => onChangeDropdown("weekly")}>
-                  Weekly
-                </button>
-              </li>
-              <li>
-                <button onClick={() => onChangeDropdown("monthly")}>
-                  Monthly
-                </button>
-              </li>
-              <li>
-                <button onClick={() => onChangeDropdown("yearly")}>
-                  Yearly
-                </button>
-              </li>
-            </ul>
-          </details>
+          <div className={isDurationShown}>
+            <details ref={dropdownOpen} className="dropdown block">
+              <summary className="m-1 btn bg-white dark:bg-gray-800">{`Repeat Duration: ${repeatDurationInput}`}</summary>
+              <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+                <li>
+                  <button onClick={() => onChangeDropdown("weekly")}>
+                    Weekly
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => onChangeDropdown("monthly")}>
+                    Monthly
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => onChangeDropdown("yearly")}>
+                    Yearly
+                  </button>
+                </li>
+              </ul>
+            </details>
+          </div>
           {/* submit */}
-          <button type="submit">Submit</button>
+          <button className="btn btn-sm btn-outline" type="submit">
+            Submit
+          </button>
         </form>
       </div>
     </div>
