@@ -1,9 +1,11 @@
 const Years = (props) => {
   return (
     <Wrap
-      grid={`${
-        props.count === 0 ? "hidden" : "block"
-      } col-span-1 sm:col-start-1 sm:col-span-2 xl:col-span-1 xl:col-start-1`}
+      grid={`${props.count === 0 ? "hidden" : "block"} ${
+        props.nextSibling === 0
+          ? "col-span-2 sm:col-start-1 sm:col-span-4 xl:col-span-2 xl:col-start-1"
+          : "col-span-1 sm:col-start-1 sm:col-span-2 xl:col-span-1 xl:col-start-1"
+      }`}
     >
       <div className="flex justify-center flex-col items-center py-2.5 h-full">
         <span className="text-3xl">{props.children}</span>

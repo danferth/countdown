@@ -14,9 +14,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={isLight ? "" : "dark"}>
       <body className="bg-white dark:bg-gray-800 transition">
-        <main className="flex flex-col h-screen container mx-auto px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-800 transition">
+        <main className="flex flex-col min-h-screen container mx-auto px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-800 transition">
           <Navigation />
-          <div className="flex-grow bg-white dark:bg-gray-800 transition">
+          <div className="grow flex bg-white dark:bg-gray-800 transition">
             {children}
           </div>
           <Footer />
