@@ -41,6 +41,8 @@ export default function Settings() {
   const isDurationShown = `form-control ${
     isRepeatableInput ? "block" : "hidden"
   } transition`;
+  const inputStyle =
+    "input bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-400";
   return (
     <div className="w-full">
       <div className="prose mb-12">
@@ -62,7 +64,7 @@ export default function Settings() {
             >{`set a new destination date`}</label>
 
             <input
-              className="input bg-white dark:bg-gray-800"
+              className={inputStyle}
               type="date"
               id="destinationDate"
               name="destinationDate"
@@ -81,7 +83,7 @@ export default function Settings() {
             >{`set a new destination time or keep the default`}</label>
 
             <input
-              className="input bg-white dark:bg-gray-800"
+              className={inputStyle}
               type="time"
               id="destinationTime"
               name="destinationTime"
@@ -108,8 +110,8 @@ export default function Settings() {
           {/* repeatDuration */}
           <div className={isDurationShown}>
             <details ref={dropdownOpen} className="dropdown block">
-              <summary className="m-1 btn bg-white dark:bg-gray-800">{`Repeat Duration: ${repeatDurationInput}`}</summary>
-              <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+              <summary className="m-1 btn bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-400">{`Repeat Duration: ${repeatDurationInput}`}</summary>
+              <ul className="p-2 shadow menu dropdown-content z-[1] rounded-box w-52 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-400">
                 <li>
                   <button onClick={() => onChangeDropdown("weekly")}>
                     Weekly
