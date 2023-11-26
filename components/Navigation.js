@@ -52,6 +52,9 @@ export default function Navigation() {
             />
           </svg>
         </Link>
+        <Link className="btn btn-ghost normal-case text-xl" href="/account">
+          Account
+        </Link>
       </div>
       <div className="navbar-end">
         <Link href="/login" className="btn btn-ghost normal-case text-xl">

@@ -1,3 +1,5 @@
+import AuthForm from "../../components/auth-form";
+
 export default function LogIn() {
   return (
     <div className="prose dark:text-gray-200">
@@ -13,6 +15,7 @@ export default function LogIn() {
         </li>
         <li>finalize basic layout</li>
       </ul>
+      <AuthForm />
     </div>
   );
 }
