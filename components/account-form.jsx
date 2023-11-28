@@ -3,9 +3,11 @@ import { useCallback, useEffect, useState, useRef } from "react";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { DateTime } from "luxon";
 import useSettings from "./useSettings";
+import { useRouter } from "next/navigation";
 export default function AccountForm({ session }) {
   const supabase = createClientComponentClient();
   const currentTime = DateTime.now();
+  const router = useRouter();
   // useSettings state
   const setDestinationZustand = useSettings((state) => state.setDestination);
   const setIsRepeatZustand = useSettings((state) => state.setIsRepeat);
@@ -15,8 +17,9 @@ export default function AccountForm({ session }) {
 
   // form state
   const [loading, setLoading] = useState(true);
-  const [username, setUsername] = useState("example");
-  const [avatar_url, setAvatarUrl] = useState("blank");
+  const [username, setUsername] = useState("");
+  const [full_name, setFullName] = useState("");
+  const [avatar_url, setAvatarUrl] = useState("");
 
   const [isRepeat, setIsRepeat] = useState(true);
 
@@ -39,7 +42,9 @@ export default function AccountForm({ session }) {
 
       const { data, error, status } = await supabase
         .from("profiles")
-        .select(`username, avatar_url, is_repeat, repeat_duration, destination`)
+        .select(
+          `username, full_name, avatar_url, is_repeat, repeat_duration, destination`
+        )
         .eq("id", user?.id)
         .single();
 
@@ -49,6 +54,7 @@ export default function AccountForm({ session }) {
 
       if (data) {
         setUsername(data.username);
+        setFullName(data.full_name);
         setAvatarUrl(data.avatar_url);
         setIsRepeat(data.is_repeat === null ? true : data.is_repeat);
         setRepeatDuration(
@@ -76,37 +82,34 @@ export default function AccountForm({ session }) {
     getProfile();
   }, [user, getProfile]);
 
-  useEffect(() => {
-    console.log("isRepeat", isRepeat);
-  }, [isRepeat]);
-
-  async function updateProfile({
-    username,
-    avatar_url,
-    is_repeat,
-    repeat_duration,
-    destination,
-  }) {
-    try {
-      setLoading(true);
-      const { error } = await supabase.from("profiles").upsert({
-        id: user?.id,
-        username: username,
-        avatar_url: avatar_url,
-        is_repeat: is_repeat,
-        repeat_duration: repeat_duration,
-        destination: destination,
-        updated_at: new Date().toISOString(),
-      });
-      if (error) throw error;
-      alert("Profile updated!");
-    } catch (error) {
-      console.log("error Updateing", error);
-      alert("Error updating the data!");
-    } finally {
-      setLoading(false);
-    }
-  }
+  const updateProfile = useCallback(
+    async ({
+      username,
+      avatar_url,
+      is_repeat,
+      repeat_duration,
+      destination,
+    }) => {
+      try {
+        setLoading(true);
+        const { error } = await supabase.from("profiles").upsert({
+          id: user?.id,
+          username: username,
+          avatar_url: avatar_url,
+          is_repeat: is_repeat,
+          repeat_duration: repeat_duration,
+          destination: destination,
+          updated_at: new Date().toISOString(),
+        });
+        if (error) throw error;
+      } catch (error) {
+        console.log("error Updateing", error);
+      } finally {
+        router.push("/");
+      }
+    },
+    [user, supabase]
+  );
 
   function onChangeDropdown(duration) {
     setRepeatDuration(duration);
@@ -155,6 +158,19 @@ export default function AccountForm({ session }) {
             type="text"
             value={session?.user.email}
             disabled
+          />
+        </div>
+        {/* full_name */}
+        <div className="form-control">
+          <label className="label" htmlFor="full_name">
+            Full Name
+          </label>
+          <input
+            className={inputStyle}
+            id="full_name"
+            type="text"
+            value={full_name || ""}
+            onChange={(e) => setFullName(e.target.value)}
           />
         </div>
         {/* username */}
@@ -249,13 +265,6 @@ export default function AccountForm({ session }) {
           {loading ? "Loading ..." : "Update"}
         </button>
       </form>
-      <div className="bg-yellow-300 p-8 rounded-md mt-8">
-        <form action="/auth/signout" method="post">
-          <button className="btn btn-sm btn-outline" type="submit">
-            Sign out
-          </button>
-        </form>
-      </div>
     </div>
   );
 }

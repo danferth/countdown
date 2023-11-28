@@ -1,3 +1,4 @@
+import GithubLogo from "../../components/github";
 export default function About() {
   return (
     <div className="prose dark:text-gray-200">
@@ -33,6 +34,15 @@ export default function About() {
             <li>Typscript</li>
             <li>Jest Testing added</li>
           </ul>
+        </li>
+        <li>
+          <a
+            className="dark:text-gray-200 flex flex-row items-center justify-start"
+            href="https://github.com/danferth/next-friday"
+          >
+            <span className="mr-2.5">Visit this repo on</span>
+            <GithubLogo className="h-5 w-auto text-gray-600 dark:text-gray-300 fill-current" />
+          </a>
         </li>
       </ul>
     </div>
