@@ -4,6 +4,7 @@ import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { DateTime } from "luxon";
 import useSettings from "./useSettings";
 import { useRouter } from "next/navigation";
+import Avatar from "./Aavatar";
 export default function AccountForm({ session }) {
   const supabase = createClientComponentClient();
   const currentTime = DateTime.now();
@@ -148,6 +149,23 @@ export default function AccountForm({ session }) {
         onSubmit={(e) => submitHandler(e)}
         className="w-full h-content space-y-8"
       >
+        <div className="form-control">
+          <Avatar
+            uid={user.id}
+            url={avatar_url}
+            size={150}
+            onUpload={(url) => {
+              setAvatarUrl(url);
+              updateProfile({
+                username: username,
+                avatar_url: avatar_url,
+                is_repeat: isRepeat,
+                repeat_duration: repeatDuration,
+                destination: destination,
+              });
+            }}
+          />
+        </div>
         <div className="form-control">
           <label className="label" htmlFor="email">
             Email
