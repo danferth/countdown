@@ -64,24 +64,18 @@ export default function Avatar({ uid, url, size, onUpload }) {
           height={size}
           src={avatarUrl}
           alt="Avatar"
-          className="avatar image"
+          className="rounded-full"
           style={{ height: size, width: size }}
         />
       ) : (
-        <div
-          className="avatar no-image"
-          style={{ height: size, width: size }}
-        />
+        <div className="skeleton" style={{ height: size, width: size }} />
       )}
       <div style={{ width: size }}>
-        <label className="button primary block" htmlFor="single">
+        <label className="label" htmlFor="single">
           {uploading ? "Uploading ..." : "Upload"}
         </label>
         <input
-          style={{
-            visibility: "hidden",
-            position: "absolute",
-          }}
+          className="input"
           type="file"
           id="single"
           accept="image/*"
