@@ -2,31 +2,25 @@
 import React, { useEffect, useState } from "react";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import Image from "next/image";
-
+import getAvatar from "./getAvatar";
 export default function Avatar({ uid, url, size, onUpload }) {
   const supabase = createClientComponentClient();
+
   const [avatarUrl, setAvatarUrl] = useState(null);
   const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
-    async function downloadImage(path) {
+    async function downloadImage(url) {
       try {
-        const { data, error } = await supabase.storage
-          .from("avatars")
-          .download(path);
-        if (error) {
-          throw error;
-        }
-
-        const url = URL.createObjectURL(data);
-        setAvatarUrl(url);
+        const avatar = await getAvatar(url);
+        setAvatarUrl(avatar);
       } catch (error) {
         console.log("Error downloading image: ", error);
       }
     }
 
     if (url) downloadImage(url);
-  }, [url, supabase]);
+  }, [url]);
 
   const uploadAvatar = async (event) => {
     try {
@@ -51,6 +45,7 @@ export default function Avatar({ uid, url, size, onUpload }) {
       onUpload(filePath);
     } catch (error) {
       alert("Error uploading avatar!");
+      console.log("avatar upload error", error);
     } finally {
       setUploading(false);
     }

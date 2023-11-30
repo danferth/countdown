@@ -1,3 +1,4 @@
+"use client";
 import useTheme from "./useTheme";
 export default function ThemeSetter() {
   const isLight = useTheme((state) => state.isLight);
