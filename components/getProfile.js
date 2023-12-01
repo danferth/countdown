@@ -18,6 +18,8 @@ export default async function getProfile(user) {
 
     if (data) {
       return data;
+    } else {
+      return null;
     }
   } catch (error) {
     console.log("error loading", error);

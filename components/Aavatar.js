@@ -15,6 +15,7 @@ export default function Avatar({ uid, url, size, onUpload }) {
         const avatar = await getAvatar(url);
         setAvatarUrl(avatar);
       } catch (error) {
+        console.log("Error downloading url: ", url);
         console.log("Error downloading image: ", error);
       }
     }

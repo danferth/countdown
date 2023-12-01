@@ -18,9 +18,14 @@ export default async function getAvatar(path) {
     url = path;
   } else {
     try {
-      url = URL.createObjectURL(
-        await supabase.storage.from("avatars").download(path)
-      );
+      const { data, error } = await supabase.storage
+        .from("avatars")
+        .download(path);
+      if (error) {
+        throw error;
+      }
+      url = URL.createObjectURL(data);
+      console.log("url", url);
     } catch (error) {
       throw new Error("Error downloading image: " + error);
     }

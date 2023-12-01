@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState, useReducer, useRef } from "react";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { DateTime } from "luxon";
 import useSettings from "./useSettings";
+import getProfile from "../components/getProfile";
 import { useRouter } from "next/navigation";
 import Avatar from "./Aavatar";
 export default function AccountForm({ session }) {
@@ -68,6 +69,7 @@ export default function AccountForm({ session }) {
 
   const updateProfile = async ({
     username,
+    full_name,
     avatar_url,
     is_repeat,
     repeat_duration,
@@ -78,6 +80,7 @@ export default function AccountForm({ session }) {
       const { error } = await supabase.from("profiles").upsert({
         id: user?.id,
         username: username,
+        full_name: full_name,
         avatar_url: avatar_url,
         is_repeat: is_repeat,
         repeat_duration: repeat_duration,
@@ -92,67 +95,61 @@ export default function AccountForm({ session }) {
     }
   };
 
-  const getProfile = useCallback(async (supabase, user) => {
-    try {
-      setLoading(true);
-
-      const { data, error, status } = await supabase
-        .from("profiles")
-        .select(
-          `username, full_name, avatar_url, is_repeat, repeat_duration, destination`
-        )
-        .eq("id", user?.id)
-        .single();
-
-      if (error && status !== 406) {
-        throw error;
-      }
-
-      if (data) {
-        dispatch({ type: "SET_USERNAME", payload: data.username });
-        dispatch({ type: "SET_FULL_NAME", payload: data.full_name });
-        dispatch({ type: "SET_AVATAR_URL", payload: data.avatar_url });
-        dispatch({
-          type: "SET_IS_REPEAT",
-          payload: data.is_repeat === null ? true : data.is_repeat,
-        });
-        dispatch({
-          type: "SET_REPEAT_DURATION",
-          payload:
-            data.repeat_duration === null ? "weekly" : data.repeat_duration,
-        });
-        dispatch({
-          type: "SET_DESTINATION_DATE",
-          payload: DateTime.fromISO(data.destination).toISODate(),
-        });
-        dispatch({
-          type: "SET_DESTINATION_TIME",
-          payload: DateTime.fromISO(data.destination).toLocaleString(
-            DateTime.TIME_24_SIMPLE
-          ),
-        });
-        setIsRepeatZustand(data.is_repeat);
-        setRepeatDurationZustand(data.repeat_duration);
-        setDestinationZustand(DateTime.fromISO(data.destination));
-      }
-    } catch (error) {
-      console.log("error", error);
-      alert("Error loading user data!");
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-
   useEffect(() => {
-    const supabase = createClientComponentClient();
-    getProfile(supabase, user);
-  }, [session]);
+    async function fetchProfile(user) {
+      try {
+        setLoading(true);
+        const profile = await getProfile(user);
+
+        if (profile) {
+          dispatch({ type: "SET_USERNAME", payload: profile.username });
+          dispatch({ type: "SET_FULL_NAME", payload: profile.full_name });
+          dispatch({ type: "SET_AVATAR_URL", payload: profile.avatar_url });
+          dispatch({
+            type: "SET_IS_REPEAT",
+            payload: profile.is_repeat === null ? true : profile.is_repeat,
+          });
+          dispatch({
+            type: "SET_REPEAT_DURATION",
+            payload:
+              profile.repeat_duration === null
+                ? "weekly"
+                : profile.repeat_duration,
+          });
+          dispatch({
+            type: "SET_DESTINATION_DATE",
+            payload: DateTime.fromISO(profile.destination).toISODate(),
+          });
+          dispatch({
+            type: "SET_DESTINATION_TIME",
+            payload: DateTime.fromISO(profile.destination).toLocaleString(
+              DateTime.TIME_24_SIMPLE
+            ),
+          });
+          setIsRepeatZustand(profile.is_repeat);
+          setRepeatDurationZustand(profile.repeat_duration);
+          setDestinationZustand(DateTime.fromISO(profile.destination));
+        }
+      } catch (error) {
+        console.log("error", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchProfile(user);
+  }, [
+    setDestinationZustand,
+    setIsRepeatZustand,
+    setRepeatDurationZustand,
+    user,
+  ]);
 
   const submitHandler = (event) => {
     event.preventDefault();
     const destination = `${destinationDate} ${destinationTime}`;
     updateProfile({
       username: username,
+      full_name: full_name,
       avatar_url: avatar_url,
       is_repeat: isRepeat,
       repeat_duration: repeatDuration,
