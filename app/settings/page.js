@@ -41,12 +41,11 @@ export default function Settings() {
   const isDurationShown = `form-control ${
     isRepeatableInput ? "block" : "hidden"
   } transition`;
-  const inputStyle =
-    "input bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-400";
+  const inputStyle = "input bg-white  text-gray-700 ";
   return (
     <div className="w-full">
       <div className="prose mb-12">
-        <h1 className="text-gray-700 dark:text-gray-200">Settings page</h1>
+        <h1 className="text-gray-700 ">Settings page</h1>
       </div>
 
       {/* form content for page */}
@@ -110,8 +109,8 @@ export default function Settings() {
           {/* repeatDuration */}
           <div className={isDurationShown}>
             <details ref={dropdownOpen} className="dropdown block">
-              <summary className="m-1 btn bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-400">{`Repeat Duration: ${repeatDurationInput}`}</summary>
-              <ul className="p-2 shadow menu dropdown-content z-[1] rounded-box w-52 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-400">
+              <summary className="m-1 btn bg-white  text-gray-700 ">{`Repeat Duration: ${repeatDurationInput}`}</summary>
+              <ul className="p-2 shadow menu dropdown-content z-[1] rounded-box w-52 bg-white  text-gray-700 ">
                 <li>
                   <button onClick={() => onChangeDropdown("weekly")}>
                     Weekly

@@ -172,8 +172,7 @@ export default function AccountForm({ session }) {
   const isDurationShown = `form-control ${
     isRepeat ? "block" : "hidden"
   } transition`;
-  const inputStyle =
-    "input bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-400";
+  const inputStyle = "input bg-white  text-gray-700 ";
   const dropdownOpen = useRef();
 
   function onChangeDropdown(duration) {
@@ -315,8 +314,8 @@ export default function AccountForm({ session }) {
         </div>
         <div className={isDurationShown}>
           <details ref={dropdownOpen} className="dropdown block">
-            <summary className="m-1 btn bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-400">{`Repeat Duration: ${repeatDuration}`}</summary>
-            <ul className="p-2 shadow menu dropdown-content z-[1] rounded-box w-52 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-400">
+            <summary className="m-1 btn bg-white  text-gray-700 ">{`Repeat Duration: ${repeatDuration}`}</summary>
+            <ul className="p-2 shadow menu dropdown-content z-[1] rounded-box w-52 bg-white  text-gray-700 ">
               <li>
                 <button onClick={() => onChangeDropdown("weekly")}>
                   Weekly

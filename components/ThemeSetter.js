@@ -11,7 +11,7 @@ export default function ThemeSetter() {
       className="btn btn-ghost normal-case text-xl"
       onClick={() => setIsLight()}
     >
-      <div className=" bg-gray-600 ring-2 ring-blue-200 dark:bg-gray-100 dark:ring-orange-200 p-0.5 rounded-full flex aligh-center justify-center">
+      <div className=" bg-gray-600 ring-2 ring-blue-200   p-0.5 rounded-full flex aligh-center justify-center">
         {isLight ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"

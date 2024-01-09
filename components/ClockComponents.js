@@ -92,7 +92,7 @@ const Wrap = (props) => {
   return (
     <div className={`${props.grid} rounded-md shadow-md xl:shadow-lg`}>
       <div
-        className={`h-full overflow-hidden rounded-md shadow-sm font-mono text-gray-300 bg-gray-100 dark:text-gray-800  dark:bg-gray-700 transition`}
+        className={`h-full overflow-hidden rounded-md shadow-sm font-mono text-gray-300 bg-gray-100    transition`}
       >
         {props.children}
       </div>

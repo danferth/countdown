@@ -10,13 +10,11 @@ import Navigation from "../components/Navigation";
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark">
-      <body className="bg-white dark:bg-gray-800 transition">
-        <main className="flex flex-col min-h-screen container mx-auto px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-800 transition">
-          <Navigation />
-          <div className="grow flex bg-white dark:bg-gray-800 transition">
-            {children}
-          </div>
-          <Footer />
+      <body className="bg-white  transition">
+        <main className="flex flex-col min-h-screen container mx-auto px-4 sm:px-6 lg:px-8 bg-white  transition">
+          {/* <Navigation /> */}
+          <div className="grow flex bg-white  transition">{children}</div>
+          {/* <Footer /> */}
         </main>
       </body>
     </html>

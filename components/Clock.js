@@ -108,7 +108,7 @@ const Clock = () => {
           {Math.floor(difference.seconds)}
         </Seconds>
       </div>
-      <p className="text-center mt-6 sm:mt-3 md:mt-10 text-sm font-light font-mono text-gray-400 dark:text-gray-400 transition">
+      <p className="text-center mt-6 sm:mt-3 md:mt-10 text-sm font-light font-mono text-gray-400  transition">
         {destinationMessage}
       </p>
     </motion.div>

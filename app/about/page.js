@@ -1,8 +1,8 @@
 import GithubLogo from "../../components/github";
 export default function About() {
   return (
-    <div className="prose dark:text-gray-200">
-      <h1 className="dark:text-gray-200">The reason I built this</h1>
+    <div className="prose ">
+      <h1 className="">The reason I built this</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut scias me
         intellegere, primum idem esse dico voluptatem, quod ille don. Sed tamen
@@ -37,11 +37,11 @@ export default function About() {
         </li>
         <li>
           <a
-            className="dark:text-gray-200 flex flex-row items-center justify-start"
+            className=" flex flex-row items-center justify-start"
             href="https://github.com/danferth/next-friday"
           >
             <span className="mr-2.5">Visit this repo on</span>
-            <GithubLogo className="h-5 w-auto text-gray-600 dark:text-gray-300 fill-current" />
+            <GithubLogo className="h-5 w-auto text-gray-600  fill-current" />
           </a>
         </li>
       </ul>
