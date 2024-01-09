@@ -21,12 +21,13 @@ const ProfileDrowdown = ({ session }) => {
   useEffect(() => {
     async function setAvatar(user) {
       try {
-        console.log("user", user);
         const profile = await getProfile(user);
-        console.log("profile", profile);
-        const avatar = await getAvatar(profile.avatar_url);
-        console.log("avatar", avatar);
-        setAvatarUrl(avatar);
+        if (profile.avatar_url) {
+          const avatar = await getAvatar(profile.avatar_url);
+          setAvatarUrl(avatar);
+        } else {
+          return;
+        }
       } catch (error) {
         console.log("Error downloading image: ", error);
       }

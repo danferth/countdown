@@ -15,7 +15,6 @@ export default function Avatar({ uid, url, size, onUpload }) {
         const avatar = await getAvatar(url);
         setAvatarUrl(avatar);
       } catch (error) {
-        console.log("Error downloading url: ", url);
         console.log("Error downloading image: ", error);
       }
     }
@@ -34,7 +33,6 @@ export default function Avatar({ uid, url, size, onUpload }) {
       const file = event.target.files[0];
       const fileExt = file.name.split(".").pop();
       const filePath = `${uid}-${Math.random()}.${fileExt}`;
-
       const { error: uploadError } = await supabase.storage
         .from("avatars")
         .upload(filePath, file);
@@ -42,7 +40,7 @@ export default function Avatar({ uid, url, size, onUpload }) {
       if (uploadError) {
         throw uploadError;
       }
-
+      // onupload would update profile with url
       onUpload(filePath);
     } catch (error) {
       alert("Error uploading avatar!");

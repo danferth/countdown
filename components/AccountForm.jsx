@@ -1,14 +1,12 @@
 "use client";
 import { useEffect, useState, useReducer, useRef } from "react";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-// import Image from "next/image";
 import { DateTime } from "luxon";
 import useSettings from "./useSettings";
 import getProfile from "../components/getProfile";
-// import getAvatar from "./getAvatar";
 import { useRouter } from "next/navigation";
 import updateUser from "../components/updateUser";
-import deleteUser from "./deleteUser";
+
 export default function AccountForm({ session }) {
   const supabase = createClientComponentClient();
   const currentTime = DateTime.now();
@@ -75,7 +73,6 @@ export default function AccountForm({ session }) {
         //   const avatarUrl = await getAvatar(profile.avatar_url);
         //   setDisplayedAvatar(avatarUrl);
         // }
-
         if (profile) {
           dispatch({ type: "SET_USERNAME", payload: profile.username });
           dispatch({ type: "SET_FULL_NAME", payload: profile.full_name });
@@ -126,14 +123,12 @@ export default function AccountForm({ session }) {
   //     if (!event.target.files || event.target.files.length === 0) {
   //       throw new Error("You must select an image to upload.");
   //     }
-
   //     const file = event.target.files[0];
   //     const fileExt = file.name.split(".").pop();
   //     const filePath = `${user.id}-${Math.random()}.${fileExt}`;
   //     const { error: uploadError } = await supabase.storage
   //       .from("avatars")
   //       .upload(filePath, file);
-
   //     if (uploadError) {
   //       throw uploadError;
   //     }
@@ -145,7 +140,6 @@ export default function AccountForm({ session }) {
   //     alert("Error uploading avatar!");
   //   }
   // };
-
   const submitHandler = (event) => {
     event.preventDefault();
     const destination = `${destinationDate} ${destinationTime}`;
@@ -181,6 +175,17 @@ export default function AccountForm({ session }) {
     dropdownOpen.current.removeAttribute("open");
   }
 
+  const deleteUser = async (id) => {
+    const { data, error } = await supabase.auth.admin.deleteUser(id);
+    if (error) {
+      console.log("delete user error", error);
+    }
+    if (data) {
+      console.log("delete user success", data);
+    }
+    // const { error } = await supabase.from("profiles").delete().eq("id", id);
+  };
+
   return (
     <div className="bg-white p-8 rounded-md w-full lg:max-w-3xl mr-auto">
       <form
@@ -188,32 +193,32 @@ export default function AccountForm({ session }) {
         className="w-full h-content space-y-8"
       >
         {/* <div className="form-control">
-          {dispalyedAvatar ? (
-            <Image
-              width={150}
-              height={150}
-              src={dispalyedAvatar}
-              alt="Avatar"
-              className="rounded-full"
-            />
-          ) : (
-            <div className="skeleton" style={{ height: 150, width: 150 }} />
-          )}
-          <div style={{ width: 150 }}>
-            <label className="label" htmlFor="avatar">
-              {loading ? "Uploading ..." : "Upload"}
-            </label>
-            <input
-              className="input"
-              name="avatar"
-              type="file"
-              id="avatar"
-              accept="image/*"
-              onChange={(event) => uploadAvatar(event)}
-              disabled={loading}
-            />
-          </div>
-        </div> */}
+              {dispalyedAvatar ? (
+                <Image
+                  width={150}
+                  height={150}
+                  src={dispalyedAvatar}
+                  alt="Avatar"
+                  className="rounded-full"
+                />
+              ) : (
+                <div className="skeleton" style={{ height: 150, width: 150 }} />
+              )}
+              <div style={{ width: 150 }}>
+                <label className="label" htmlFor="avatar">
+                  {loading ? "Uploading ..." : "Upload"}
+                </label>
+                <input
+                  className="input"
+                  name="avatar"
+                  type="file"
+                  id="avatar"
+                  accept="image/*"
+                  onChange={(event) => uploadAvatar(event)}
+                  disabled={loading}
+                />
+              </div>
+            </div> */}
         <div className="form-control">
           <label className="label" htmlFor="email">
             Email
@@ -339,14 +344,14 @@ export default function AccountForm({ session }) {
           {loading ? "Loading ..." : "Update"}
         </button>
       </form>
-      {/* <div className="">
+      <div className="">
         <button
           className="btn btn-sm btn-outline"
           onClick={() => deleteUser(user.id)}
         >
           Delete Acount
         </button>
-      </div> */}
+      </div>
     </div>
   );
 }

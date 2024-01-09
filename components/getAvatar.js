@@ -12,7 +12,6 @@ export default async function getAvatar(path) {
   if (!path) {
     throw new Error("Invalid path", path);
   }
-  console.log("path", path);
   let url = null;
   if (path.startsWith("https://")) {
     url = path;
@@ -25,7 +24,6 @@ export default async function getAvatar(path) {
         throw error;
       }
       url = URL.createObjectURL(data);
-      console.log("url", url);
     } catch (error) {
       throw new Error("Error downloading image: " + error);
     }
