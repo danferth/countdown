@@ -6,3 +6,288 @@ body > footer {
   position: sticky;
   top: 100vh;
 }
+
+/* 6 : A,B,C,D,E,F */
+/* 6A */
+.grid_6A {
+  @apply col-span-1 sm:col-span-2 md:col-span-1 lg:col-span-2;
+}
+.container_6A {
+  @apply py-2 bg-primary text-primary-content;
+}
+.digit_6A {
+  @apply text-4xl font-semibold;
+}
+.text_6A {
+  @apply text-4xl font-extralight;
+}
+/* 6B */
+.grid_6B {
+  @apply col-span-1 sm:col-span-2 md:col-span-1 lg:col-span-2;
+}
+.container_6B {
+  @apply py-2 bg-primary text-primary-content;
+}
+.digit_6B {
+  @apply text-4xl font-semibold;
+}
+.text_6B {
+  @apply text-4xl font-extralight;
+}
+/* 6C */
+.grid_6C {
+  @apply col-span-2 sm:row-span-2 md:row-span-1 lg:row-span-2;
+}
+.container_6C {
+  @apply py-3 bg-primary text-primary-content;
+}
+.digit_6C {
+  @apply text-9xl font-black ml-5;
+}
+.text_6C {
+  @apply -ml-5 text-2xl font-light inline-block transform -rotate-90;
+}
+/* 6D */
+.grid_6D {
+  @apply col-span-2 sm:col-start-3 sm:col-span-2 md:col-start-1 lg:col-start-3 lg:col-span-2;
+}
+.container_6D {
+  @apply py-2 bg-secondary text-secondary-content;
+}
+.digit_6D {
+  @apply text-4xl font-light;
+}
+.text_6D {
+  @apply text-4xl font-extrabold;
+}
+/* 6E */
+.grid_6E {
+  @apply col-span-1 sm:col-start-3 sm:col-span-1 md:col-start-1 lg:col-start-3 lg:col-span-1;
+}
+.container_6E {
+  @apply flex-col py-2.5 bg-secondary text-secondary-content;
+}
+.digit_6E {
+  @apply text-3xl font-medium;
+}
+.text_6E {
+  @apply text-sm font-light;
+}
+/* 6F */
+.grid_6F {
+  @apply col-span-1 sm:col-start-4 sm:col-span-1 md:col-start-2 lg:col-start-4 lg:col-span-1;
+}
+.container_6F {
+  @apply flex-col py-2.5 bg-secondary text-secondary-content;
+}
+.digit_6F {
+  @apply text-3xl font-medium;
+}
+.text_6F {
+  @apply text-sm font-light;
+}
+
+/* 5 : A,B,C,D,E */
+/* 5A */
+.grid_5A {
+  @apply col-span-2 sm:col-span-4 md:col-span-2 lg:col-span-4;
+}
+.container_5A {
+  @apply py-2 bg-primary text-primary-content;
+}
+.digit_5A {
+  @apply text-4xl font-semibold;
+}
+.text_5A {
+  @apply text-4xl font-extralight;
+}
+/* 5B */
+.grid_5B {
+  @apply col-span-2 sm:row-span-2 md:row-span-1 lg:row-span-2;
+}
+.container_5B {
+  @apply py-3 bg-primary text-primary-content;
+}
+.digit_5B {
+  @apply text-9xl font-black ml-5;
+}
+.text_5B {
+  @apply -ml-5 text-2xl  font-light  inline-block transform -rotate-90;
+}
+/* 5C */
+.grid_5C {
+  @apply col-span-2 sm:col-start-3 sm:col-span-2 md:col-start-1 lg:col-start-3 lg:col-span-2;
+}
+.container_5C {
+  @apply py-2 bg-secondary text-secondary-content;
+}
+.digit_5C {
+  @apply text-4xl font-light;
+}
+.text_5C {
+  @apply text-4xl font-extrabold;
+}
+/* 5D */
+.grid_5D {
+  @apply col-span-1 sm:col-start-3 sm:col-span-1 md:col-start-1 lg:col-start-3 lg:col-span-1;
+}
+.container_5D {
+  @apply flex-col py-2.5 bg-secondary text-secondary-content;
+}
+.digit_5D {
+  @apply text-3xl font-medium;
+}
+.text_5D {
+  @apply text-sm font-light;
+}
+/* 5E */
+.grid_5E {
+  @apply col-span-1 sm:col-start-4 sm:col-span-1 md:col-start-2 lg:col-start-4 lg:col-span-1;
+}
+.container_5E {
+  @apply flex-col py-2.5 bg-secondary text-secondary-content;
+}
+.digit_5E {
+  @apply text-3xl font-medium;
+}
+.text_5E {
+  @apply text-sm font-light;
+}
+
+/* 4 : A,B,C,D */
+/* 4A */
+.grid_4A {
+  @apply col-span-2 sm:row-span-2 md:row-span-1 lg:row-span-2;
+}
+.container_4A {
+  @apply py-3 bg-primary text-primary-content;
+}
+.digit_4A {
+  @apply text-9xl font-black ml-5;
+}
+.text_4A {
+  @apply -ml-5 text-2xl  font-light  inline-block transform -rotate-90;
+}
+/* 4B */
+.grid_4B {
+  @apply col-span-2 sm:col-start-3 sm:col-span-2 md:col-start-1 lg:col-start-3 lg:col-span-2;
+}
+.container_4B {
+  @apply py-2 bg-secondary text-secondary-content;
+}
+.digit_4B {
+  @apply text-4xl font-light;
+}
+.text_4B {
+  @apply text-4xl font-extrabold;
+}
+/* 4C */
+.grid_4C {
+  @apply col-span-1 sm:col-start-3 sm:col-span-1 md:col-start-1 lg:col-start-3 lg:col-span-1;
+}
+.container_4C {
+  @apply flex-col py-2.5 bg-secondary text-secondary-content;
+}
+.digit_4C {
+  @apply text-3xl font-bold;
+}
+.text_4C {
+  @apply text-sm font-light;
+}
+/* 4D */
+.grid_4D {
+  @apply col-span-1 sm:col-start-4 sm:col-span-1 md:col-start-2 lg:col-start-4 lg:col-span-1;
+}
+.container_4D {
+  @apply flex-col py-2.5 bg-secondary text-secondary-content;
+}
+.digit_4D {
+  @apply text-3xl font-bold;
+}
+.text_4D {
+  @apply text-sm font-light;
+}
+
+/* 3 : A,B,C */
+/* 3A */
+.grid_3A {
+  @apply col-span-2 sm:row-span-2 md:row-span-1 lg:row-span-2;
+}
+.container_3A {
+  @apply py-3 bg-primary text-primary-content;
+}
+.digit_3A {
+  @apply text-9xl font-black ml-5;
+}
+.text_3A {
+  @apply -ml-5 text-2xl  font-light  inline-block transform -rotate-90;
+}
+/* 3B */
+.grid_3B {
+  @apply col-span-1 sm:col-span-2 md:col-span-1 lg:col-span-2;
+}
+.container_3B {
+  @apply py-2 bg-secondary text-secondary-content;
+}
+.digit_3B {
+  @apply text-4xl font-thin;
+}
+.text_3B {
+  @apply text-4xl font-extrabold;
+}
+/* 3C */
+.grid_3C {
+  @apply col-span-1 sm:col-span-2 md:col-span-1 lg:col-span-2;
+}
+.container_3C {
+  @apply py-2 bg-secondary text-secondary-content;
+}
+.digit_3C {
+  @apply text-4xl font-black;
+}
+.text_3C {
+  @apply text-4xl font-light;
+}
+
+/* 2 : A,B */
+/* 2A */
+.grid_2A {
+  @apply col-span-1 sm:col-span-2 md:col-span-1 lg:col-span-2;
+}
+.container_2A {
+  @apply py-3 bg-primary text-primary-content;
+}
+.digit_2A {
+  @apply text-9xl font-black ml-5;
+}
+.text_2A {
+  @apply -ml-6 text-lg font-normal inline-block transform -rotate-90;
+}
+/* 2B */
+.grid_2B {
+  @apply col-span-1 sm:col-span-2 md:col-span-1 lg:col-span-2;
+}
+.container_2B {
+  @apply flex-col py-3 bg-secondary text-secondary-content;
+}
+.digit_2B {
+  @apply text-9xl font-black mr-0;
+}
+.text_2B {
+  @apply text-lg font-normal;
+}
+
+/* 1 : A */
+/* 1A */
+.grid_1A {
+  @apply col-span-2 sm:col-span-4 md:col-span-2 lg:col-span-4;
+}
+.container_1A {
+  @apply flex-col px-4 py-6 bg-primary text-primary-content;
+}
+.digit_1A {
+  @apply text-9xl font-black;
+}
+.text_1A {
+  @apply text-2xl font-medium;
+}

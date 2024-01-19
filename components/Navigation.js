@@ -9,7 +9,7 @@ export default async function Navigation() {
   const session = await getSession();
   const iconStyles = "w-6 h-6 text-gray-500 ";
   return (
-    <div className="navbar bg-gray-50  mt-8 mb-4 rounded-lg shadow-md shadow-gray-300  transition">
+    <div className="navbar bg-info transition">
       <div className="navbar-start">
         <Link href="/" className="btn btn-ghost normal-case text-xl">
           <ClockIcon className={iconStyles} />
