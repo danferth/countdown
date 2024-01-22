@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import kanye from "../images/kanye.webp";
+import kanye from "../images/kanye.png";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import getQuote from "./getQuote";
@@ -42,9 +42,9 @@ const Kanye = () => {
         variants={variants}
         initial="initial"
         animate="animate"
-        className="lg:w-3/12 xl:5/12 md:ml-0 lg:self-center xl:mx-auto xl:-mt-20 flex items-center md:flex-col py-4 px-8 lg:p-0 mb-5 sm:mb-3 md:mb-20 lg:mb-0"
+        className="outline outline-accent"
       >
-        <div className="flex-shrink-0 relative md:shadow-md h-0 w-14 pt-14 md:w-24 md:pt-24 xl:w-36 xl:pt-36 md:mb-3 rounded-full overflow-hidden ring-2 xl:ring-4 ring-gray-200  transition">
+        <div className="flex-shrink-0 relative md:shadow-md h-0 w-14 pt-14 md:w-24 md:pt-24 xl:w-36 xl:pt-36 md:mb-3 rounded-full overflow-hidden ring-2 xl:ring-4 bg-base-300 ring-accent transition">
           <Image
             priority={true}
             src={kanye}
@@ -53,12 +53,16 @@ const Kanye = () => {
           />
         </div>
         <div className="ml-4 md:ml-0 text-left md:text-center">
-          <p className="serif mt-1 mb-2 text-sm md:text-base font-medium text-gray-700  leading-tight tracking-tight md:tracking-normal transition">
-            &ldquo;<span className="mx-0.5">{quote}</span>
-            &rdquo;
+          <p className="font-cursive font-thin mt-1 text-base  text-base-content leading-tight transition">
+            <span className="text-primary font-black text-xl">&ldquo;</span>
+            <span className="mx-0.5">{quote}</span>
+            <span className="text-primary font-black text-xl">&rdquo;</span>
           </p>
-          <p className="text-right cursive text-xs md:text-sm font-serif italic tracking-tight md:tracking-normal text-gray-400  transition">
-            ... {name}
+          <p className="pr-5 text-right font-cursive font-light text-sm italic text-base-content transition">
+            <span className="text-secondary font-black text-xl mr-0.5">
+              ...
+            </span>
+            <span className="opacity-50">{name}</span>
           </p>
         </div>
       </motion.div>

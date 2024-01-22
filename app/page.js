@@ -6,8 +6,8 @@ export default function Home() {
   return (
     <>
       <Suspense fallback={<Loading />}>
-        <div className="my-auto w-full flex flex-col items-center justify-evenly md:justify-center lg:flex-row lg:px-20 h-min">
-          {/* <Kanye /> */}
+        <div className="bg-base-200 w-full">
+          <Kanye />
           <Clock />
         </div>
       </Suspense>

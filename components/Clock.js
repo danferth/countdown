@@ -101,7 +101,7 @@ const Clock = () => {
       variants={variants}
       initial="initial"
       animate="animate"
-      className="w-full px-8 md:px-12 lg:p-0 lg:w-8/12 lg:ml-auto xl:w-6/12 xl:mx-auto"
+      className="outline outline-primary"
     >
       <div className="grid gap-2.5 md:gap-3 xl:gap-4 grid-cols-2 sm:grid-cols-4 md:grid-cols-2 lg:grid-cols-4 ">
         {Object.entries(squares).map(([key, value], index) => {

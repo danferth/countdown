@@ -12,6 +12,7 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-work-sans)"],
         mono: ["var(--font-chivo-mono)"],
+        cursive: ["var(--font-Edu-SA-Beginner)"],
       },
     },
   },

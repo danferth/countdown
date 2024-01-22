@@ -1,6 +1,5 @@
 import "@/styles/globals.css";
-import { Chivo_Mono } from "next/font/google";
-import { Work_Sans } from "next/font/google";
+import { Chivo_Mono, Work_Sans, Edu_SA_Beginner } from "next/font/google";
 import Footer from "../components/Footer";
 import Navigation from "../components/Navigation";
 // import useTheme from "@/components/useTheme";
@@ -19,16 +18,21 @@ const workSans = Work_Sans({
   variable: "--font-work-sans",
 });
 
+const eduSaBeginner = Edu_SA_Beginner({
+  subsets: ["latin"],
+  variable: "--font-Edu-SA-Beginner",
+});
+
 export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${chivoMono.variable} ${workSans.variable} dark`}
+      className={`${chivoMono.variable} ${workSans.variable} ${eduSaBeginner.variable} dark`}
     >
       <body className="bg-base-100 transition">
         <main
           className={
-            "flex flex-col min-h-screen container mx-auto px-4 sm:px-6 lg:px-8 bg-base-100  transition"
+            "flex flex-col min-h-screen container mx-auto px-4 sm:px-6 lg:px-8 bg-base-100 transition"
           }
         >
           {/* <Navigation /> */}
