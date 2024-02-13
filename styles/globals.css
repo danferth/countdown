@@ -16,10 +16,10 @@ body > footer {
   @apply py-2 bg-primary text-primary-content;
 }
 .digit_6A {
-  @apply text-4xl font-semibold;
+  @apply text-4xl tracking-tighter sm:tracking-normal font-semibold;
 }
 .text_6A {
-  @apply text-4xl font-extralight;
+  @apply text-4xl tracking-tighter sm:tracking-normal font-extralight;
 }
 /* 6B */
 .grid_6B {
@@ -29,10 +29,10 @@ body > footer {
   @apply py-2 bg-primary text-primary-content;
 }
 .digit_6B {
-  @apply text-4xl font-semibold;
+  @apply text-4xl tracking-tighter sm:tracking-normal font-semibold;
 }
 .text_6B {
-  @apply text-4xl font-extralight;
+  @apply text-4xl tracking-tighter sm:tracking-normal font-extralight;
 }
 /* 6C */
 .grid_6C {
@@ -45,7 +45,7 @@ body > footer {
   @apply text-9xl font-black ml-5;
 }
 .text_6C {
-  @apply -ml-5 text-2xl font-light inline-block transform -rotate-90;
+  @apply -ml-5 text-2xl tracking-tighter sm:tracking-normal font-light inline-block transform -rotate-90;
 }
 /* 6D */
 .grid_6D {
@@ -55,10 +55,10 @@ body > footer {
   @apply py-2 bg-secondary text-secondary-content;
 }
 .digit_6D {
-  @apply text-4xl font-light;
+  @apply text-4xl tracking-tighter sm:tracking-normal font-light;
 }
 .text_6D {
-  @apply text-4xl font-extrabold;
+  @apply text-4xl tracking-tighter sm:tracking-normal font-extrabold;
 }
 /* 6E */
 .grid_6E {
@@ -68,10 +68,10 @@ body > footer {
   @apply flex-col py-2.5 bg-secondary text-secondary-content;
 }
 .digit_6E {
-  @apply text-3xl font-medium;
+  @apply text-3xl tracking-tighter sm:tracking-normal font-medium;
 }
 .text_6E {
-  @apply text-sm font-light;
+  @apply text-sm tracking-tighter sm:tracking-normal font-light;
 }
 /* 6F */
 .grid_6F {
@@ -81,10 +81,10 @@ body > footer {
   @apply flex-col py-2.5 bg-secondary text-secondary-content;
 }
 .digit_6F {
-  @apply text-3xl font-medium;
+  @apply text-3xl tracking-tighter sm:tracking-normal font-medium;
 }
 .text_6F {
-  @apply text-sm font-light;
+  @apply text-sm tracking-tighter sm:tracking-normal font-light;
 }
 
 /* 5 : A,B,C,D,E */
@@ -96,10 +96,10 @@ body > footer {
   @apply py-2 bg-primary text-primary-content;
 }
 .digit_5A {
-  @apply text-4xl font-semibold;
+  @apply text-4xl tracking-tighter sm:tracking-normal font-semibold;
 }
 .text_5A {
-  @apply text-4xl font-extralight;
+  @apply text-4xl tracking-tighter sm:tracking-normal font-extralight;
 }
 /* 5B */
 .grid_5B {
@@ -112,7 +112,7 @@ body > footer {
   @apply text-9xl font-black ml-5;
 }
 .text_5B {
-  @apply -ml-5 text-2xl  font-light  inline-block transform -rotate-90;
+  @apply -ml-5 text-2xl  tracking-tighter sm:tracking-normal font-light  inline-block transform -rotate-90;
 }
 /* 5C */
 .grid_5C {
@@ -122,10 +122,10 @@ body > footer {
   @apply py-2 bg-secondary text-secondary-content;
 }
 .digit_5C {
-  @apply text-4xl font-light;
+  @apply text-4xl tracking-tighter sm:tracking-normal font-light;
 }
 .text_5C {
-  @apply text-4xl font-extrabold;
+  @apply text-4xl tracking-tighter sm:tracking-normal font-extrabold;
 }
 /* 5D */
 .grid_5D {
@@ -135,10 +135,10 @@ body > footer {
   @apply flex-col py-2.5 bg-secondary text-secondary-content;
 }
 .digit_5D {
-  @apply text-3xl font-medium;
+  @apply text-3xl tracking-tighter sm:tracking-normal font-medium;
 }
 .text_5D {
-  @apply text-sm font-light;
+  @apply text-sm tracking-tighter sm:tracking-normal font-light;
 }
 /* 5E */
 .grid_5E {
@@ -148,10 +148,10 @@ body > footer {
   @apply flex-col py-2.5 bg-secondary text-secondary-content;
 }
 .digit_5E {
-  @apply text-3xl font-medium;
+  @apply text-3xl tracking-tighter sm:tracking-normal font-medium;
 }
 .text_5E {
-  @apply text-sm font-light;
+  @apply text-sm tracking-tighter sm:tracking-normal font-light;
 }
 
 /* 4 : A,B,C,D */
@@ -166,7 +166,7 @@ body > footer {
   @apply text-9xl font-black ml-5;
 }
 .text_4A {
-  @apply -ml-5 text-2xl  font-light  inline-block transform -rotate-90;
+  @apply -ml-5 text-2xl  tracking-tighter sm:tracking-normal font-light  inline-block transform -rotate-90;
 }
 /* 4B */
 .grid_4B {
@@ -176,10 +176,10 @@ body > footer {
   @apply py-2 bg-secondary text-secondary-content;
 }
 .digit_4B {
-  @apply text-4xl font-light;
+  @apply text-4xl tracking-tighter sm:tracking-normal font-light;
 }
 .text_4B {
-  @apply text-4xl font-extrabold;
+  @apply text-4xl tracking-tighter sm:tracking-normal font-extrabold;
 }
 /* 4C */
 .grid_4C {
@@ -189,10 +189,10 @@ body > footer {
   @apply flex-col py-2.5 bg-secondary text-secondary-content;
 }
 .digit_4C {
-  @apply text-3xl font-bold;
+  @apply text-3xl tracking-tighter sm:tracking-normal font-bold;
 }
 .text_4C {
-  @apply text-sm font-light;
+  @apply text-sm tracking-tighter sm:tracking-normal font-light;
 }
 /* 4D */
 .grid_4D {
@@ -202,10 +202,10 @@ body > footer {
   @apply flex-col py-2.5 bg-secondary text-secondary-content;
 }
 .digit_4D {
-  @apply text-3xl font-bold;
+  @apply text-3xl tracking-tighter sm:tracking-normal font-bold;
 }
 .text_4D {
-  @apply text-sm font-light;
+  @apply text-sm tracking-tighter sm:tracking-normal font-light;
 }
 
 /* 3 : A,B,C */
@@ -220,7 +220,7 @@ body > footer {
   @apply text-9xl font-black ml-5;
 }
 .text_3A {
-  @apply -ml-5 text-2xl  font-light  inline-block transform -rotate-90;
+  @apply -ml-5 text-2xl  tracking-tighter sm:tracking-normal font-light  inline-block transform -rotate-90;
 }
 /* 3B */
 .grid_3B {
@@ -230,10 +230,10 @@ body > footer {
   @apply py-2 bg-secondary text-secondary-content;
 }
 .digit_3B {
-  @apply text-4xl font-thin;
+  @apply text-4xl tracking-tighter sm:tracking-normal font-thin;
 }
 .text_3B {
-  @apply text-4xl font-extrabold;
+  @apply text-4xl tracking-tighter sm:tracking-normal font-extrabold;
 }
 /* 3C */
 .grid_3C {
@@ -243,10 +243,10 @@ body > footer {
   @apply py-2 bg-secondary text-secondary-content;
 }
 .digit_3C {
-  @apply text-4xl font-black;
+  @apply text-4xl tracking-tighter sm:tracking-normal font-black;
 }
 .text_3C {
-  @apply text-4xl font-light;
+  @apply text-4xl tracking-tighter sm:tracking-normal font-light;
 }
 
 /* 2 : A,B */
@@ -261,7 +261,7 @@ body > footer {
   @apply text-9xl font-black ml-5;
 }
 .text_2A {
-  @apply -ml-6 text-lg font-normal inline-block transform -rotate-90;
+  @apply -ml-6 text-lg tracking-tighter sm:tracking-normal font-normal inline-block transform -rotate-90;
 }
 /* 2B */
 .grid_2B {
@@ -271,10 +271,10 @@ body > footer {
   @apply flex-col py-3 bg-secondary text-secondary-content;
 }
 .digit_2B {
-  @apply text-9xl font-black mr-0;
+  @apply text-9xl tracking-tighter sm:tracking-normal font-black mr-0;
 }
 .text_2B {
-  @apply text-lg font-normal;
+  @apply text-lg tracking-tighter sm:tracking-normal font-normal;
 }
 
 /* 1 : A */
@@ -286,8 +286,8 @@ body > footer {
   @apply flex-col px-4 py-6 bg-primary text-primary-content;
 }
 .digit_1A {
-  @apply text-9xl font-black;
+  @apply text-9xl tracking-tighter sm:tracking-normal font-black;
 }
 .text_1A {
-  @apply text-2xl font-medium;
+  @apply text-2xl tracking-tighter sm:tracking-normal font-medium;
 }

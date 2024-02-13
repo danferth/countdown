@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
       <body className="bg-base-100 transition">
         <main
           className={
-            "flex flex-col min-h-screen container mx-auto px-4 sm:px-6 lg:px-8 bg-base-100 transition"
+            "flex flex-col min-h-screen container mx-auto bg-base-100 transition"
           }
         >
           {/* <Navigation /> */}

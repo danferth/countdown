@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ClockSquare } from "./ClockComponent";
+import { ClockSquare } from "./ClockSquare";
 import useSettings from "../components/useSettings";
 import { DateTime, Interval } from "luxon";
 
@@ -101,9 +101,18 @@ const Clock = () => {
       variants={variants}
       initial="initial"
       animate="animate"
-      className="outline outline-primary"
+      className="px-4 pb-12 w-full mx-auto flex-grow flex flex-col items-center justify-top
+      sm:px-0 sm:flex-grow-0 
+      md:pb-0 md:pt-6 md:w-11/12
+      xl:w-2/3"
     >
-      <div className="grid gap-2.5 md:gap-3 xl:gap-4 grid-cols-2 sm:grid-cols-4 md:grid-cols-2 lg:grid-cols-4 ">
+      <div
+        className="w-full grid gap-2.5 md:gap-3 xl:gap-4 grid-cols-2 
+      sm:grid-cols-4 
+      md:grid-cols-2 
+      lg:grid-cols-4
+      lg:w-3/4"
+      >
         {Object.entries(squares).map(([key, value], index) => {
           const position = `${squaresCount}${alphabet[index]}`;
           return (
@@ -116,7 +125,7 @@ const Clock = () => {
           );
         })}
       </div>
-      <p className="text-center mt-6 sm:mt-3 md:mt-10 text-sm font-light font-mono text-base-content transition">
+      <p className="text-center mt-2.5 sm:mt-3 md:mt-5 text-sm font-light font-mono text-base-content transition">
         {destinationMessage}
       </p>
       <p className="text-center mt-2.5 text-sm font-light font-mono text-base-content transition space-x-2">
@@ -125,6 +134,7 @@ const Clock = () => {
         <span className="hidden md:inline">MD</span>
         <span className="hidden lg:inline">LG</span>
         <span className="hidden xl:inline">XL</span>
+        <span className="hidden 2xl:inline">2XL</span>
       </p>
     </motion.div>
   );

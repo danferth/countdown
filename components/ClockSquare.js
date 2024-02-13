@@ -11,7 +11,7 @@ const ClockSquare = (props) => {
         <div
           className={`${
             "container_" + props.position
-          } flex items-center justify-center text-center h-full`}
+          } flex items-center justify-center text-center h-full px-1.5`}
         >
           <span
             className={`${
