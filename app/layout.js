@@ -34,7 +34,7 @@ export default function RootLayout({ children }) {
             "container mx-auto bg-base-100 transition h-full flex flex-col"
           }
         >
-          {/* <Navigation /> */}
+          <Navigation />
           <div className="grow flex transition">{children}</div>
         </main>
       </body>

@@ -7,24 +7,21 @@ import ProfileDrowdown from "./ProfileDropdown";
 
 export default async function Navigation() {
   const session = await getSession();
-  const iconStyles = "w-6 h-6 text-gray-500 ";
+  const iconStyles = "w-5 h-5 text-base-content stroke-current";
   return (
-    <div className="navbar bg-info transition">
-      <div className="navbar-start">
-        <Link href="/" className="btn btn-ghost normal-case text-xl">
+    <div className="navbar transition">
+      <div className="navbar-start space-x-4">
+        <Link href="/" className="btn btn-circle btn-sm btn-ghost">
           <ClockIcon className={iconStyles} />
-        </Link>
-        <Link href="/about" className="btn btn-ghost normal-case text-xl">
-          <AboutIcon className={iconStyles} />
         </Link>
         <Link
           href={session?.user ? "/account" : "/settings"}
-          className="btn btn-ghost normal-case text-xl"
+          className="btn btn-circle btn-sm btn-ghost"
         >
           <SettingsIcon className={iconStyles} />
         </Link>
-        <Link href="/test" className="btn btn-ghost normal-case text-xl">
-          Test
+        <Link href="/about" className="btn btn-circle btn-sm btn-ghost">
+          <AboutIcon className={iconStyles} />
         </Link>
       </div>
       <div className="navbar-end">
