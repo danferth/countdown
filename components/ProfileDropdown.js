@@ -39,7 +39,7 @@ const ProfileDrowdown = ({ session }) => {
   return (
     <details ref={dropdown} className="dropdown dropdown-end mr-8">
       <summary className="btn btn-ghost btn-circle avatar">
-        <div className="w-10 rounded-full">
+        <div className="w-10 rounded-full ring ring-accent hover:ring-0 transition">
           <Image
             width="40"
             height="40"
