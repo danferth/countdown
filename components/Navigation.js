@@ -1,7 +1,8 @@
 import Link from "next/link";
 import ClockIcon from "../components/ClockIcon";
 import AboutIcon from "../components/AboutIcon";
-import SettingsIcon from "../components/SettingsIcon";
+import SettingsIconPortrait from "./SettingsIconPortrait";
+import SettingsIconLandscape from "./SettingsIconLandscape";
 import getSession from "./getSession";
 import ProfileDrowdown from "./ProfileDropdown";
 
@@ -18,7 +19,8 @@ export default async function Navigation() {
           href={session?.user ? "/account" : "/settings"}
           className="btn btn-circle btn-sm btn-ghost"
         >
-          <SettingsIcon className={iconStyles} />
+          <SettingsIconPortrait className={`${iconStyles} landscape:hidden`} />
+          <SettingsIconLandscape className={`${iconStyles} portrait:hidden`} />
         </Link>
         <Link href="/about" className="btn btn-circle btn-sm btn-ghost">
           <AboutIcon className={iconStyles} />

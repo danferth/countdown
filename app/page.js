@@ -13,7 +13,7 @@ export default function Home() {
           <Clock />
           <div
             className={` w-full shrink transition flex flex-col justify-center mb-4
-          sm:mb-0
+          sm:mb-0 sm:landscape:mt-4
           sm:portrait:mb-14
           md:portrait:mb-12
           ${quoteVisible ? `lg:mb-12` : `lg:mb-24`}`}
