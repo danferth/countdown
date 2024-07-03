@@ -25,8 +25,7 @@ const ClockSquare = (props) => {
               "text_" + props.position
             } uppercase leading-none tracking-wide text-sans antialiased transition`}
           >
-            {/* {props.count === "01" ? `second` : `seconds`} */}
-            {props.tag}
+            {props.value === 1 ? props.tag.slice(0, -1) : props.tag}
           </span>
         </div>
       </div>

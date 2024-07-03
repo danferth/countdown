@@ -10,9 +10,9 @@ const useSettings = create((set) => ({
 
   destination: DateTime.fromObject({
     years: 2025,
-    months: 6,
+    months: 8,
     days: 26,
-    hours: 12,
+    hours: 6,
     minutes: 30,
     seconds: 0,
   }),

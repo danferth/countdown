@@ -1,6 +1,5 @@
 import "@/styles/globals.css";
 import { Chivo_Mono, Work_Sans, Edu_SA_Beginner } from "next/font/google";
-import Footer from "../components/Footer";
 import Navigation from "../components/Navigation";
 // import useTheme from "@/components/useTheme";
 // export const metadata = {
@@ -27,17 +26,16 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${chivoMono.variable} ${workSans.variable} ${eduSaBeginner.variable} dark`}
+      className={`${chivoMono.variable} ${workSans.variable} ${eduSaBeginner.variable} dark h-full`}
     >
-      <body className="bg-base-100 transition">
+      <body className="bg-base-100 h-full transition">
         <main
           className={
-            "flex flex-col min-h-screen container mx-auto bg-base-100 transition"
+            "container mx-auto bg-base-100 transition h-full flex flex-col"
           }
         >
           {/* <Navigation /> */}
           <div className="grow flex transition">{children}</div>
-          {/* <Footer /> */}
         </main>
       </body>
     </html>
