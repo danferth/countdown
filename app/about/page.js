@@ -90,16 +90,25 @@ export default function About() {
       <h2>What Did I Use To Build Countdown?</h2>
       <ul>
         <li>React</li>
-        <li>Next.js</li>
-        <li>Supabase</li>
         <li>TypeScript</li>
+        <li>Next.js</li>
+        <li>Zustand</li>
+        <li>Supabase</li>
         <li>Tailwind</li>
         <li>Daisy UI</li>
-        <li>Framer Motion</li>
-        <li>Zustand</li>
         <li>Luxon</li>
+        <li>Framer Motion</li>
         <li>Lots of coffee</li>
       </ul>
+      <p>
+        <a
+          className="flex flex-row items-center justify-start"
+          href="https://github.com/danferth/next-friday"
+        >
+          <GithubLogo className="h-5 w-auto text-gray-600  fill-current" />
+          <span className="ml-2.5">Link to repository</span>
+        </a>
+      </p>
     </div>
   );
 }

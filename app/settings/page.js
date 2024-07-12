@@ -1,10 +1,11 @@
 "use client";
+import { useRouter } from "next/navigation";
 import { useState, useRef } from "react";
 import useSettings from "../../components/useSettings";
 import { DateTime } from "luxon";
 export default function Settings() {
   const currentTime = DateTime.now();
-
+  const router = useRouter();
   const destination = useSettings((state) => state.destination);
   const setDestination = useSettings((state) => state.setDestination);
 
@@ -37,19 +38,20 @@ export default function Settings() {
     setDestination(
       DateTime.fromISO(`${destinationDateInput}T${destinationTimeInput}`)
     );
+    router.push("/");
   }
   const isDurationShown = `form-control ${
     isRepeatableInput ? "block" : "hidden"
   } transition`;
-  const inputStyle = "input bg-white  text-gray-700 ";
+  const inputStyle = "input bg-base-300";
   return (
-    <div className="w-full">
+    <div className="w-full max-w-2xl px-2.5">
       <div className="prose mb-12">
-        <h1 className="text-gray-700 ">Settings page</h1>
+        <h1 className="">Settings page</h1>
       </div>
 
       {/* form content for page */}
-      <div className="bg-white p-8 rounded-md max-w-xl mr-auto">
+      <div className="mx-auto w-full">
         <form
           ref={settingsForm}
           onSubmit={(e) => submitHandler(e)}
@@ -68,8 +70,8 @@ export default function Settings() {
               id="destinationDate"
               name="destinationDate"
               value={destinationDateInput}
-              min={destination.minus({ months: 3 }).toISODate()}
-              max={destination.plus({ years: 20 }).toISODate()}
+              min={currentTime.toISODate()}
+              max={currentTime.plus({ years: 20 }).toISODate()}
               onChange={(e) => setDestinationDateInput(e.target.value)}
             />
           </div>
@@ -109,8 +111,8 @@ export default function Settings() {
           {/* repeatDuration */}
           <div className={isDurationShown}>
             <details ref={dropdownOpen} className="dropdown block">
-              <summary className="m-1 btn bg-white  text-gray-700 ">{`Repeat Duration: ${repeatDurationInput}`}</summary>
-              <ul className="p-2 shadow menu dropdown-content z-[1] rounded-box w-52 bg-white  text-gray-700 ">
+              <summary className="m-1 btn text-base-content ">{`Repeat Duration: ${repeatDurationInput}`}</summary>
+              <ul className="p-2 shadow menu dropdown-content z-[1] rounded-box w-52 bg-base-300 text-base-content ">
                 <li>
                   <button onClick={() => onChangeDropdown("weekly")}>
                     Weekly
