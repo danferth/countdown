@@ -16,10 +16,10 @@ body > footer {
   @apply py-2 bg-primary text-primary-content;
 }
 .digit_6A {
-  @apply text-4xl tracking-tighter sm:tracking-normal font-semibold;
+  @apply text-3xl tracking-tighter sm:tracking-normal font-semibold sm:text-4xl;
 }
 .text_6A {
-  @apply text-4xl tracking-tighter sm:tracking-normal font-extralight;
+  @apply text-3xl tracking-tighter sm:tracking-normal font-extralight sm:text-4xl;
 }
 /* 6B */
 .grid_6B {
@@ -29,10 +29,10 @@ body > footer {
   @apply py-2 bg-primary text-primary-content;
 }
 .digit_6B {
-  @apply text-4xl tracking-tighter sm:tracking-normal font-semibold;
+  @apply text-3xl tracking-tighter sm:tracking-normal font-semibold sm:text-4xl;
 }
 .text_6B {
-  @apply text-4xl tracking-tighter sm:tracking-normal font-extralight;
+  @apply text-3xl tracking-tighter sm:tracking-normal font-extralight sm:text-4xl;
 }
 /* 6C */
 .grid_6C {
@@ -230,10 +230,10 @@ body > footer {
   @apply py-2 bg-secondary text-secondary-content;
 }
 .digit_3B {
-  @apply text-4xl tracking-tighter sm:tracking-normal font-thin;
+  @apply text-2xl tracking-tighter sm:tracking-normal font-thin sm:text-4xl;
 }
 .text_3B {
-  @apply text-4xl tracking-tighter sm:tracking-normal font-extrabold;
+  @apply text-2xl tracking-tighter sm:tracking-normal font-extrabold sm:text-4xl;
 }
 /* 3C */
 .grid_3C {
@@ -243,10 +243,10 @@ body > footer {
   @apply py-2 bg-secondary text-secondary-content;
 }
 .digit_3C {
-  @apply text-4xl tracking-tighter sm:tracking-normal font-black;
+  @apply text-2xl tracking-tighter sm:tracking-normal font-black sm:text-4xl;
 }
 .text_3C {
-  @apply text-4xl tracking-tighter sm:tracking-normal font-light;
+  @apply text-2xl tracking-tighter sm:tracking-normal font-light sm:text-4xl;
 }
 
 /* 2 : A,B */
@@ -258,7 +258,7 @@ body > footer {
   @apply py-3 bg-primary text-primary-content;
 }
 .digit_2A {
-  @apply text-9xl font-black ml-5;
+  @apply text-8xl font-black ml-5;
 }
 .text_2A {
   @apply -ml-6 text-lg tracking-tighter sm:tracking-normal font-normal inline-block transform -rotate-90;
@@ -271,7 +271,7 @@ body > footer {
   @apply flex-col py-3 bg-secondary text-secondary-content;
 }
 .digit_2B {
-  @apply text-9xl tracking-tighter sm:tracking-normal font-black mr-0;
+  @apply text-8xl tracking-tighter sm:tracking-normal font-black mr-0;
 }
 .text_2B {
   @apply text-lg tracking-tighter sm:tracking-normal font-normal;
