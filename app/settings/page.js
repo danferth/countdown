@@ -26,7 +26,8 @@ export default function Settings() {
     useState(repeatDuration);
   const settingsForm = useRef();
   const dropdownOpen = useRef();
-  function onChangeDropdown(duration) {
+  function onChangeDropdown(duration, event) {
+    event.preventDefault();
     setRepeatDurationInput(duration);
     dropdownOpen.current.removeAttribute("open");
   }
@@ -47,7 +48,12 @@ export default function Settings() {
   return (
     <div className="w-full max-w-2xl px-2.5">
       <div className="prose mb-12">
-        <h1 className="">Settings page</h1>
+        <h1 className="">Countdown Settings</h1>
+        <p>
+          Customie the countdown to any date and time up to twenty years from
+          now. You can also set the coutdown to repeat weekly, monthly, yearly,
+          or set a one-time countdown.
+        </p>
       </div>
 
       {/* form content for page */}
@@ -62,7 +68,7 @@ export default function Settings() {
             <label
               className="label"
               htmlFor="destinationDate"
-            >{`set a new destination date`}</label>
+            >{`Countdown to what day?`}</label>
 
             <input
               className={inputStyle}
@@ -78,10 +84,9 @@ export default function Settings() {
 
           {/* Time portion */}
           <div className="form-control">
-            <label
-              className="label"
-              htmlFor="destinationTime"
-            >{`set a new destination time or keep the default`}</label>
+            <label className="label" htmlFor="destinationTime">{`What time on ${
+              DateTime.fromISO(destinationDateInput).weekdayLong
+            } is the countdown to?`}</label>
 
             <input
               className={inputStyle}
@@ -97,7 +102,7 @@ export default function Settings() {
             <label
               className="label"
               htmlFor="isRepeatableInput"
-            >{`should the countdown repeat?`}</label>
+            >{`Should the countdown repeat?`}</label>
 
             <input
               className="input toggle"
@@ -114,17 +119,17 @@ export default function Settings() {
               <summary className="m-1 btn text-base-content ">{`Repeat Duration: ${repeatDurationInput}`}</summary>
               <ul className="p-2 shadow menu dropdown-content z-[1] rounded-box w-52 bg-base-300 text-base-content ">
                 <li>
-                  <button onClick={() => onChangeDropdown("weekly")}>
+                  <button onClick={(e) => onChangeDropdown("weekly", e)}>
                     Weekly
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => onChangeDropdown("monthly")}>
+                  <button onClick={(e) => onChangeDropdown("monthly", e)}>
                     Monthly
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => onChangeDropdown("yearly")}>
+                  <button onClick={(e) => onChangeDropdown("yearly", e)}>
                     Yearly
                   </button>
                 </li>
