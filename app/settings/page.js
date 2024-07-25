@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import { useState, useRef } from "react";
 import useSettings from "../../components/useSettings";
 import { DateTime } from "luxon";
+import Link from "next/link";
 export default function Settings() {
   const currentTime = DateTime.now();
   const router = useRouter();
@@ -25,11 +26,9 @@ export default function Settings() {
   const [repeatDurationInput, setRepeatDurationInput] =
     useState(repeatDuration);
   const settingsForm = useRef();
-  const dropdownOpen = useRef();
-  function onChangeDropdown(duration, event) {
-    event.preventDefault();
+  function onChangeDropdown(duration) {
     setRepeatDurationInput(duration);
-    dropdownOpen.current.removeAttribute("open");
+    // dropdownOpen.current.removeAttribute("open");
   }
 
   function submitHandler(event) {
@@ -41,18 +40,30 @@ export default function Settings() {
     );
     router.push("/");
   }
-  const isDurationShown = `form-control ${
-    isRepeatableInput ? "block" : "hidden"
-  } transition`;
-  const inputStyle = "input bg-base-300";
+  const controlWrapperStyle = "space-y-6 flex flex-col justify-between";
+  const formControlStyle = "form-control items-center justify-center";
+  const inputStyle =
+    "input input-primary w-full sm:max-w-xs input-lg text-center";
+  const labelStyle = "label text-lg font-bold";
+  const toggleStyle = "toggle toggle-secondary toggle-lg";
+  const selectStyle = "select w-full sm:max-w-xs select-lg select-secondary";
   return (
-    <div className="w-full max-w-2xl px-2.5">
-      <div className="prose mb-12">
-        <h1 className="">Countdown Settings</h1>
+    <div className="mt-8 w-full max-w-3xl px-2.5 mx-auto">
+      <div className="prose prose-xl mb-12 max-w-none">
+        <h1 className="sm:text-center">Countdown Settings</h1>
         <p>
-          Customie the countdown to any date and time up to twenty years from
-          now. You can also set the coutdown to repeat weekly, monthly, yearly,
-          or set a one-time countdown.
+          Make the countdown personal by setting to any date and time up to
+          twenty years from now. You can also set the coutdown to repeat weekly,
+          monthly, yearly, or set a one-time countdown.
+        </p>
+        <p className="prose prose-sm max-w-none">
+          Creating an{" "}
+          <Link href="/login" className="text-accent">
+            account
+          </Link>{" "}
+          is optional but highly recommended for repeat visitors. By doing so,
+          you can keep your countdowns persistent between visits and enjoy more
+          customization options.
         </p>
       </div>
 
@@ -61,86 +72,102 @@ export default function Settings() {
         <form
           ref={settingsForm}
           onSubmit={(e) => submitHandler(e)}
-          className="w-full h-full space-y-8"
+          className="w-full h-full space-y-12 mb-12 lg:grid lg:grid-cols-2 lg:space-y-0"
         >
-          {/* datepicker */}
-          <div className="form-control">
-            <label
-              className="label"
-              htmlFor="destinationDate"
-            >{`Countdown to what day?`}</label>
+          <div className={controlWrapperStyle}>
+            {/* datepicker */}
+            <div className={formControlStyle}>
+              <label
+                className={labelStyle}
+                htmlFor="destinationDate"
+              >{`Countdown to what day?`}</label>
 
-            <input
-              className={inputStyle}
-              type="date"
-              id="destinationDate"
-              name="destinationDate"
-              value={destinationDateInput}
-              min={currentTime.toISODate()}
-              max={currentTime.plus({ years: 20 }).toISODate()}
-              onChange={(e) => setDestinationDateInput(e.target.value)}
-            />
-          </div>
+              <input
+                className={inputStyle}
+                type="date"
+                id="destinationDate"
+                name="destinationDate"
+                value={destinationDateInput}
+                min={currentTime.toISODate()}
+                max={currentTime.plus({ years: 20 }).toISODate()}
+                onChange={(e) => setDestinationDateInput(e.target.value)}
+              />
+            </div>
 
-          {/* Time portion */}
-          <div className="form-control">
-            <label className="label" htmlFor="destinationTime">{`What time on ${
-              DateTime.fromISO(destinationDateInput).weekdayLong
-            } is the countdown to?`}</label>
+            {/* Time portion */}
+            <div className={formControlStyle}>
+              <label
+                className={labelStyle}
+                htmlFor="destinationTime"
+              >{`What time on ${
+                DateTime.fromISO(destinationDateInput).weekdayLong
+              }?`}</label>
 
-            <input
-              className={inputStyle}
-              type="time"
-              id="destinationTime"
-              name="destinationTime"
-              value={destinationTimeInput}
-              onChange={(e) => setDestinationTimeInput(e.target.value)}
-            />
+              <input
+                className={inputStyle}
+                type="time"
+                id="destinationTime"
+                name="destinationTime"
+                value={destinationTimeInput}
+                onChange={(e) => setDestinationTimeInput(e.target.value)}
+              />
+            </div>
           </div>
-          {/* isreapeat toggle */}
-          <div className="form-control">
-            <label
-              className="label"
-              htmlFor="isRepeatableInput"
-            >{`Should the countdown repeat?`}</label>
+          <div className={controlWrapperStyle}>
+            {/* isreapeat toggle */}
+            <div className={formControlStyle}>
+              <label
+                className={`${labelStyle} cursor-pointer`}
+                htmlFor="isRepeatableInput"
+              >{`Should it repeat?`}</label>
 
-            <input
-              className="input toggle"
-              type="checkbox"
-              id="isRepeatableInput"
-              name="isRepeatableInput"
-              checked={isRepeatableInput}
-              onChange={() => setIsRepeatableInput(!isRepeatableInput)}
-            />
+              <input
+                className={toggleStyle}
+                type="checkbox"
+                id="isRepeatableInput"
+                name="isRepeatableInput"
+                checked={isRepeatableInput}
+                onChange={() => setIsRepeatableInput(!isRepeatableInput)}
+              />
+            </div>
+            {/* repeatDuration */}
+            <div className={formControlStyle}>
+              <label
+                className={labelStyle}
+                htmlFor="repeatDurationInput"
+              >{`How often should it repeat?`}</label>
+              <select
+                name="repeatDurationInput"
+                id="repeatDurationInput"
+                disabled={!isRepeatableInput}
+                onChange={(e) => onChangeDropdown(e.target.value)}
+                className={selectStyle}
+              >
+                <option value="weekly">Weekly</option>
+                <option value="monthly">Monthly</option>
+                <option value="yearly">Yearly</option>
+              </select>
+            </div>
           </div>
-          {/* repeatDuration */}
-          <div className={isDurationShown}>
-            <details ref={dropdownOpen} className="dropdown block">
-              <summary className="m-1 btn text-base-content ">{`Repeat Duration: ${repeatDurationInput}`}</summary>
-              <ul className="p-2 shadow menu dropdown-content z-[1] rounded-box w-52 bg-base-300 text-base-content ">
-                <li>
-                  <button onClick={(e) => onChangeDropdown("weekly", e)}>
-                    Weekly
-                  </button>
-                </li>
-                <li>
-                  <button onClick={(e) => onChangeDropdown("monthly", e)}>
-                    Monthly
-                  </button>
-                </li>
-                <li>
-                  <button onClick={(e) => onChangeDropdown("yearly", e)}>
-                    Yearly
-                  </button>
-                </li>
-              </ul>
-            </details>
+          <div className={`${formControlStyle} lg:col-span-2 pt-6`}>
+            <button
+              className="mx-auto btn btn-lg btn-outline btn-accent w-full sm:max-w-xs lg:max-w-2xl"
+              type="submit"
+            >
+              Submit
+            </button>
           </div>
-          {/* submit */}
-          <button className="btn btn-sm btn-outline" type="submit">
-            Submit
-          </button>
         </form>
+        <div className="prose prose-sm max-w-none lg:max-w-2xl lg:mx-auto bg-info text-info-content p-2.5 rounded-lg mb-24">
+          <p>
+            To save your settings for future visits, consider creating an{" "}
+            <Link href="/login" className="text-accent">
+              account
+            </Link>
+            . You can sign in with Google, GitHub, or a Magic Link. Rest
+            assured, we won&apos;t send any unsolicited emails or solicitations.
+          </p>
+        </div>
       </div>
     </div>
   );

@@ -20,7 +20,7 @@ export default function Home() {
           >
             {quoteVisible && <Kanye />}
             <button
-              className="btn btn-neutral btn-xs text-neutral-content btn-outline mx-auto block"
+              className="btn btn-accent btn-xs text-accent-content btn-outline mx-auto block"
               onClick={() => setQuoteVisible(!quoteVisible)}
             >
               {quoteVisible ? "Hide Yeezy" : "Show Yeezy"}
