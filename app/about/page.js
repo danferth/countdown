@@ -26,6 +26,11 @@ export default function About() {
         visits.
       </p>
 
+      <blockquote>
+        Instead of making someone sift through multiple repositories, Countdown
+        efficiently demonstrates my capabilities in one comprehensive project.
+      </blockquote>
+
       <h2>Why Build It?</h2>
       <p>
         Throughout my career, many of the impressive projects I&apos;ve built
@@ -35,11 +40,6 @@ export default function About() {
         <code>React/Next.js/PostgreSQL</code>, aligning with current job market
         demands.
       </p>
-
-      <blockquote>
-        Instead of making someone sift through multiple repositories, Countdown
-        efficiently demonstrates my capabilities in one comprehensive project.
-      </blockquote>
 
       <h2 className="text-base-content">What Capabilities Am I Showing?</h2>
       <ul>

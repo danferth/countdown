@@ -65,6 +65,14 @@ export default function Settings() {
           you can keep your countdown persistent between visits and enjoy more
           customization options.
         </p>
+        <p className="text-xs my-0 py-0">
+          <span className="sm:hidden">base</span>
+          <span className="hidden sm:inline md:hidden">sm</span>
+          <span className="hidden md:inline lg:hidden">md</span>
+          <span className="hidden lg:inline xl:hidden">lg</span>
+          <span className="hidden xl:inline 2xl:hidden">xl</span>
+          <span className="hidden 2xl:inline">2xl</span>
+        </p>
       </div>
 
       {/* form content for page */}
