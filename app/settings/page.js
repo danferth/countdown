@@ -62,7 +62,7 @@ export default function Settings() {
             account
           </Link>{" "}
           is optional but highly recommended for repeat visitors. By doing so,
-          you can keep your countdowns persistent between visits and enjoy more
+          you can keep your countdown persistent between visits and enjoy more
           customization options.
         </p>
       </div>

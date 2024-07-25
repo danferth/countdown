@@ -2,7 +2,7 @@ import GithubLogo from "../../components/github";
 export default function About() {
   return (
     <div
-      className="prose xl:prose-lg pt-12 mb-6 px-2.5
+      className="prose prose-xl xl:prose-lg pt-12 mb-6 px-2.5
     text-base-content prose-code:bg-base-200"
     >
       <p>
