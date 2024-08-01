@@ -1,6 +1,6 @@
 {
-  "name": "next-friday",
-  "version": "0.1.0",
+  "name": "countdown",
+  "version": "4.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,6 +11,8 @@
   "dependencies": {
     "@headlessui/react": "^2.1.2",
     "@heroicons/react": "^2.0.18",
+    "@supabase/ssr": "^0.4.0",
+    "@supabase/supabase-js": "^2.45.0",
     "framer-motion": "^11.3.7",
     "luxon": "^3.4.3",
     "next": "^14.2.5",
@@ -23,14 +25,14 @@
     "zustand": "^4.4.6"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.10",
+    "@types/luxon": "^3.3.4",
     "@types/node": "20.14.11",
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
-    "@tailwindcss/typography": "^0.5.10",
-    "@types/luxon": "^3.3.4",
-    "eslint": "^8.0.0",
     "autoprefixer": "10.4.19",
     "daisyui": "^4.12.10",
+    "eslint": "^8.0.0",
     "eslint-config-next": "^14.2.5"
   }
 }
