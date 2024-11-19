@@ -25,6 +25,7 @@ const eduSaBeginner = Edu_SA_Beginner({
 export default function RootLayout({ children }) {
   return (
     <html
+      data-theme="retro"
       lang="en"
       className={`${chivoMono.variable} ${workSans.variable} ${eduSaBeginner.variable} dark h-full`}
     >
