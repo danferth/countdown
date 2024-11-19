@@ -56,15 +56,6 @@ export default function Settings() {
           twenty years from now. You can also set the coutdown to repeat weekly,
           monthly, yearly, or set a one-time countdown.
         </p>
-        <p className="prose prose-sm max-w-none">
-          Creating an{" "}
-          <Link href="/login" className="text-accent">
-            account
-          </Link>{" "}
-          is optional but highly recommended for repeat visitors. By doing so,
-          you can keep your countdown persistent between visits and enjoy more
-          customization options.
-        </p>
         {/* <p className="text-xs my-0 py-0">
           <span className="sm:hidden">base</span>
           <span className="hidden sm:inline md:hidden">sm</span>
@@ -157,6 +148,7 @@ export default function Settings() {
               </select>
             </div>
           </div>
+          {/* add theme stuff. Light/dark/system, and choose light and dark theme. */}
           <div className={`${formControlStyle} lg:col-span-2 lg:pt-12`}>
             <button
               className="mx-auto btn btn-lg btn-outline btn-accent w-full sm:max-w-xs lg:max-w-2xl"
@@ -166,16 +158,6 @@ export default function Settings() {
             </button>
           </div>
         </form>
-        <div className="prose prose-sm max-w-none md:max-w-2xl md:mx-auto bg-base-200 text-base-content p-2.5 rounded-lg mb-24">
-          <p>
-            To save your settings for future visits, consider creating an{" "}
-            <Link href="/login" className="text-accent">
-              account
-            </Link>
-            . You can sign in with Google, GitHub, or a Magic Link. Rest
-            assured, we won&apos;t send any unsolicited emails or solicitations.
-          </p>
-        </div>
       </div>
     </div>
   );

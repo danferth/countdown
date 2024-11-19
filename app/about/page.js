@@ -17,13 +17,10 @@ export default function About() {
       <h1 className="text-base-content">What Is Countdown?</h1>
       <p>
         Countdown is a Jamstack website crafted with React using the Next.js
-        framework, with Supabase handling data storage and user authentication.
-        The site&apos;s core feature is to provide a countdown to a specific
-        date and time. By default, for non-logged-in users, it counts down to
-        the next Friday at 5:00 PM in their local timezone. Users can customize
-        the countdown to repeat weekly, monthly, yearly, or set a one-time
-        countdown. Logging in allows users to save these settings for future
-        visits.
+        framework. The site&apos;s core feature is to provide a countdown to a
+        specific date and time. By default, it counts down to the next Friday at
+        5:00 PM in your local timezone. You can customize the countdown to
+        repeat weekly, monthly, yearly, or set a one-time countdown.
       </p>
 
       <blockquote>
@@ -36,9 +33,8 @@ export default function About() {
         Throughout my career, many of the impressive projects I&apos;ve built
         either use older tech stacks like <code>PHP/MySQL/Apache</code> or are
         for internal use, making them inaccessible. I created Countdown to
-        showcase my skills using the modern stack of{" "}
-        <code>React/Next.js/PostgreSQL</code>, aligning with current job market
-        demands.
+        showcase my skills using the modern stack of <code>React/Next.js</code>,
+        aligning with current job market I&apos;d like to work in.
       </p>
 
       <h2 className="text-base-content">What Capabilities Am I Showing?</h2>
@@ -59,17 +55,6 @@ export default function About() {
           forms.
         </li>
         <li>
-          <b>Database Integration:</b> Utilizing Supabase for database needs.
-        </li>
-        <li>
-          <b>User Authentication:</b> Providing login functionality and
-          personalized settings.
-        </li>
-        <li>
-          <b>User Profiles:</b> Syncing user preferences with the database to
-          update the global state.
-        </li>
-        <li>
           <b>Design:</b> Crafting a visually appealing interface beyond basic
           Bootstrap.
         </li>
@@ -77,10 +62,10 @@ export default function About() {
           <b>Open Source Contribution:</b> Maintaining a publicly accessible
           repository not tied to proprietary work.
         </li>
-        <li>
+        {/* <li>
           <b>TypeScript:</b> Using TypeScript, a highly requested skill in
           current job postings.
-        </li>
+        </li> */}
         <li>
           <b>Deployment:</b> Hosting the project for interactive use and
           demonstration.
@@ -90,15 +75,14 @@ export default function About() {
       <h2>What Did I Use To Build Countdown?</h2>
       <ul>
         <li>React</li>
-        <li>TypeScript</li>
+        {/* <li>TypeScript</li> */}
         <li>Next.js</li>
         <li>Zustand</li>
-        <li>Supabase</li>
         <li>Tailwind</li>
         <li>Daisy UI</li>
         <li>Luxon</li>
         <li>Framer Motion</li>
-        <li>Lots of coffee</li>
+        <li>Few cups of coffee</li>
       </ul>
       <p>
         <a

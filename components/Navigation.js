@@ -3,7 +3,6 @@ import ClockIcon from "../components/ClockIcon";
 import AboutIcon from "../components/AboutIcon";
 import SettingsIconPortrait from "./SettingsIconPortrait";
 import SettingsIconLandscape from "./SettingsIconLandscape";
-import ProfileDrowdown from "./ProfileDropdown";
 
 export default async function Navigation() {
   const iconStyles = "w-5 h-5 text-base-content stroke-current";
@@ -21,9 +20,7 @@ export default async function Navigation() {
           <AboutIcon className={iconStyles} />
         </Link>
       </div>
-      <div className="navbar-end">
-        <ProfileDrowdown />
-      </div>
+      <div className="navbar-end">{/* theme switcher button thingy */}</div>
     </div>
   );
 }
