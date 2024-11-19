@@ -1,38 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# What Is Countdown?
 
-## Getting Started
+Countdown is a Jamstack website crafted with React using the Next.js framework.
+The site's core feature is to provide a countdown to a specific date and time.
+By default, it counts down to the next Friday at 5:00 PM in your local timezone.
+You can customize the countdown to repeat weekly, monthly, yearly, or set a
+one-time countdown.
 
-First, run the development server:
+> Instead of making someone sift through multiple repositories, Countdown
+> efficiently demonstrates my capabilities in one comprehensive project.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Why Build It?
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Throughout my career, many of the impressive projects I've built either use
+older tech stacks like `PHP/MySQL/Apache` or are for internal use, making them
+inaccessible. I created Countdown to showcase my skills using the modern stack
+of `React/Next.js`, aligning with current job market I'd like to work in.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## What Capabilities Am I Showing?
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- **API Requests:** Integrating external APIs, like fetching Kanye quotes.
+- **Functionality:** Implementing a real-time countdown timer.
+- **Global State Management:** Managing the countdown target date/time across
+  the app.
+- **Form Handling:** Allowing users to update the global state via forms.
+- **Design:** Crafting a visually appealing interface beyond basic Bootstrap.
+- **Open Source Contribution:** Maintaining a publicly accessible repository not
+  tied to proprietary work.
+- **Deployment:** Hosting the project for interactive use and demonstration.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## What Did I Use To Build Countdown?
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- React
+- Next.js
+- Zustand
+- Tailwind
+- Daisy UI
+- Luxon
+- Framer Motion
+- Few cups of coffee
