@@ -1,9 +1,12 @@
 import Link from "next/link";
-import ClockIcon from "../components/ClockIcon";
-import AboutIcon from "../components/AboutIcon";
-import SettingsIconPortrait from "./SettingsIconPortrait";
-import SettingsIconLandscape from "./SettingsIconLandscape";
-import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
+import {
+  SunIcon,
+  MoonIcon,
+  ClockIcon,
+  AdjustmentsHorizontalIcon,
+  AdjustmentsVerticalIcon,
+  QuestionMarkCircleIcon,
+} from "@heroicons/react/24/outline";
 
 export default async function Navigation() {
   const iconStyles = "w-5 h-5 text-base-content stroke-current";
@@ -15,11 +18,15 @@ export default async function Navigation() {
           <ClockIcon className={iconStyles} />
         </Link>
         <Link href="/settings" className="btn btn-circle btn-sm btn-ghost">
-          <SettingsIconPortrait className={`${iconStyles} landscape:hidden`} />
-          <SettingsIconLandscape className={`${iconStyles} portrait:hidden`} />
+          <AdjustmentsVerticalIcon
+            className={`${iconStyles} landscape:hidden`}
+          />
+          <AdjustmentsHorizontalIcon
+            className={`${iconStyles} portrait:hidden`}
+          />
         </Link>
         <Link href="/about" className="btn btn-circle btn-sm btn-ghost">
-          <AboutIcon className={iconStyles} />
+          <QuestionMarkCircleIcon className={iconStyles} />
         </Link>
         <ThemeControler />
       </div>

@@ -2,10 +2,10 @@ import "@/styles/globals.css";
 import { Chivo_Mono, Work_Sans, Edu_SA_Beginner } from "next/font/google";
 import Navigation from "../components/Navigation";
 // import useTheme from "@/components/useTheme";
-// export const metadata = {
-//   title: "Friday Countdown",
-//   description: "It's friday mutha fucka",
-// };
+export const metadata = {
+  title: "Countdown",
+  description: "Set a countdown to your liking!",
+};
 
 const chivoMono = Chivo_Mono({
   subsets: ["latin"],
