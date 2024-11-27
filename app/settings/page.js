@@ -3,18 +3,13 @@ import { useRouter } from "next/navigation";
 import { useState, useRef } from "react";
 import useSettings from "../../components/useSettings";
 import useTheme from "../../components/useTheme";
-import { twMerge } from "tailwind-merge";
 import { DateTime } from "luxon";
 import Link from "next/link";
 export default function Settings() {
-  // useTheme
-  const Light = useTheme((state) => state.Light);
-  const Dark = useTheme((state) => state.Dark);
-  const setLight = useTheme((state) => state.setLight);
-  const setDark = useTheme((state) => state.setDark);
-
+  // current time and router
   const currentTime = DateTime.now();
   const router = useRouter();
+
   // useSetings
   const destination = useSettings((state) => state.destination);
   const setDestination = useSettings((state) => state.setDestination);
@@ -24,35 +19,56 @@ export default function Settings() {
 
   const repeatDuration = useSettings((state) => state.repeatDuration);
   const setRepeatDuration = useSettings((state) => state.setRepeatDuration);
+
+  // useTheme
+  const Light = useTheme((state) => state.Light);
+  const Dark = useTheme((state) => state.Dark);
+  const setLight = useTheme((state) => state.setLight);
+  const setDark = useTheme((state) => state.setDark);
+
   // form state
-  const [isRepeatableInput, setIsRepeatableInput] = useState(isRepeat);
   const [destinationDateInput, setDestinationDateInput] = useState(
     destination.toISODate()
   );
   const [destinationTimeInput, setDestinationTimeInput] = useState(
     destination.toLocaleString(DateTime.TIME_24_SIMPLE)
   );
+  const [isRepeatInput, setIsRepeatInput] = useState(isRepeat);
   const [repeatDurationInput, setRepeatDurationInput] =
     useState(repeatDuration);
+
   const settingsForm = useRef();
-  function onChangeDropdown(duration) {
-    setRepeatDurationInput(duration);
+  function onChangeDestination(destinationDate, destinationTime) {
+    setDestinationDateInput(destinationDate);
+    setDestinationTimeInput(destinationTime);
+    setDestination(DateTime.fromISO(`${destinationDate}T${destinationTime}`));
   }
+  function onChangeIsRepeat(repeat) {
+    setIsRepeatInput(repeat);
+    setIsRepeat(repeat);
+  }
+  function onChangeRepeatDuration(duration) {
+    setRepeatDurationInput(duration);
+    setRepeatDuration(duration);
+  }
+
   function onChangeThemeLight(event, lightTheme) {
     event.preventDefault();
     setLight(lightTheme);
   }
+
   function onChangeThemeDark(event, darkTheme) {
     event.preventDefault();
     setDark(darkTheme);
   }
+
   function submitHandler(event) {
     event.preventDefault();
-    setIsRepeat(isRepeatableInput);
-    setRepeatDuration(repeatDurationInput);
-    setDestination(
-      DateTime.fromISO(`${destinationDateInput}T${destinationTimeInput}`)
-    );
+    // setIsRepeat(isRepeatInput);
+    // setRepeatDuration(repeatDurationInput);
+    // setDestination(
+    //   DateTime.fromISO(`${destinationDateInput}T${destinationTimeInput}`)
+    // );
 
     router.push("/");
   }
@@ -70,17 +86,18 @@ export default function Settings() {
         <h1 className="sm:text-center">Countdown Settings</h1>
         <p>
           Make the countdown personal by setting to any date and time up to
-          twenty years from now. You can also set the coutdown to repeat weekly,
-          monthly, yearly, or set a one-time countdown.
+          twenty years from now. You can set the coutdown to repeat weekly,
+          monthly, yearly, or set a one-time countdown. There are also fun theme
+          options for light and dark settings.
         </p>
-        <p className="text-xs my-0 py-0">
+        {/* <p className="text-xs my-0 py-0">
           <span className="sm:hidden">base</span>
           <span className="hidden sm:inline md:hidden">sm</span>
           <span className="hidden md:inline lg:hidden">md</span>
           <span className="hidden lg:inline xl:hidden">lg</span>
           <span className="hidden xl:inline 2xl:hidden">xl</span>
           <span className="hidden 2xl:inline">2xl</span>
-        </p>
+        </p> */}
       </div>
 
       {/* form content for page */}
@@ -106,7 +123,9 @@ export default function Settings() {
                 value={destinationDateInput}
                 min={currentTime.toISODate()}
                 max={currentTime.plus({ years: 20 }).toISODate()}
-                onChange={(e) => setDestinationDateInput(e.target.value)}
+                onChange={(e) =>
+                  onChangeDestination(e.target.value, destinationTimeInput)
+                }
               />
             </div>
 
@@ -125,7 +144,9 @@ export default function Settings() {
                 id="destinationTime"
                 name="destinationTime"
                 value={destinationTimeInput}
-                onChange={(e) => setDestinationTimeInput(e.target.value)}
+                onChange={(e) =>
+                  onChangeDestination(destinationDateInput, e.target.value)
+                }
               />
             </div>
           </div>
@@ -134,16 +155,16 @@ export default function Settings() {
             <div className={formControlStyle}>
               <label
                 className={`${labelStyle} cursor-pointer`}
-                htmlFor="isRepeatableInput"
+                htmlFor="isRepeatInput"
               >{`Should it repeat?`}</label>
 
               <input
                 className={`${toggleStyle} `}
                 type="checkbox"
-                id="isRepeatableInput"
-                name="isRepeatableInput"
-                checked={isRepeatableInput}
-                onChange={() => setIsRepeatableInput(!isRepeatableInput)}
+                id="isRepeatInput"
+                name="isRepeatInput"
+                checked={isRepeatInput}
+                onChange={() => onChangeIsRepeat(!isRepeatInput)}
               />
             </div>
             {/* repeatDuration */}
@@ -155,8 +176,8 @@ export default function Settings() {
               <select
                 name="repeatDurationInput"
                 id="repeatDurationInput"
-                disabled={!isRepeatableInput}
-                onChange={(e) => onChangeDropdown(e.target.value)}
+                disabled={!isRepeatInput}
+                onChange={(e) => onChangeRepeatDuration(e.target.value)}
                 className={selectStyle}
               >
                 <option value="weekly">Weekly</option>
@@ -321,7 +342,7 @@ export default function Settings() {
               className="mx-auto btn btn-lg btn-outline btn-accent w-full sm:max-w-xs lg:max-w-2xl"
               type="submit"
             >
-              New Countdown
+              Back to the countdown
             </button>
           </div>
         </form>
