@@ -55,9 +55,15 @@ const Clock = () => {
   useEffect(() => {
     const currentTime = DateTime.now();
     setDestinationMessage(
-      `${destination.toLocaleString(
+      `${!isRepeat ? "One Time" : ""} Countdown to ${destination.toLocaleString(
         DateTime.DATE_HUGE
-      )} @ ${destination.toLocaleString(DateTime.TIME_SIMPLE)}`
+      )} @ ${destination.toLocaleString(DateTime.TIME_SIMPLE)}${
+        isRepeat
+          ? `, Repeating ${repeatDuration
+              .charAt(0)
+              .toUpperCase()}${repeatDuration.slice(1)}`
+          : ""
+      }`
     );
 
     if (currentTime > destination) {
