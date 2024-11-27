@@ -1,14 +1,13 @@
 import Link from "next/link";
 import {
-  SunIcon,
-  MoonIcon,
   ClockIcon,
   AdjustmentsHorizontalIcon,
   AdjustmentsVerticalIcon,
   QuestionMarkCircleIcon,
 } from "@heroicons/react/24/outline";
+import ThemeControler from "./ThemeControler";
 
-export default async function Navigation() {
+export default function Navigation() {
   const iconStyles = "w-5 h-5 text-base-content stroke-current";
   return (
     <div className="navbar transition">
@@ -34,17 +33,3 @@ export default async function Navigation() {
     </div>
   );
 }
-
-const ThemeControler = () => {
-  return (
-    <label className="swap swap-rotate btn btn-circle btn-sm btn-ghost">
-      {/* this hidden checkbox controls the state */}
-      <input type="checkbox" className="theme-controller" value="coffee" />
-
-      {/* sun icon */}
-      <SunIcon className="swap-off w-5 h-5 text-base-content stroke-current" />
-      {/* moon icon */}
-      <MoonIcon className="swap-on w-5 h-5 text-base-content stroke-current" />
-    </label>
-  );
-};

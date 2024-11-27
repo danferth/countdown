@@ -1,11 +1,14 @@
+"use client";
+import { useEffect } from "react";
+import useTheme from "@/components/useTheme";
 import "@/styles/globals.css";
 import { Chivo_Mono, Work_Sans, Edu_SA_Beginner } from "next/font/google";
 import Navigation from "../components/Navigation";
 // import useTheme from "@/components/useTheme";
-export const metadata = {
-  title: "Countdown",
-  description: "Set a countdown to your liking!",
-};
+// export const metadata = {
+//   title: "Countdown",
+//   description: "Set a countdown to your liking!",
+// };
 
 const chivoMono = Chivo_Mono({
   subsets: ["latin"],
@@ -23,9 +26,13 @@ const eduSaBeginner = Edu_SA_Beginner({
 });
 
 export default function RootLayout({ children }) {
+  const Light = useTheme((state) => state.Light);
+  useEffect(() => {
+    console.log(`Light: ${Light}`);
+  }, [Light]);
   return (
     <html
-      data-theme="retro"
+      data-theme={Light}
       lang="en"
       className={`${chivoMono.variable} ${workSans.variable} ${eduSaBeginner.variable} dark h-full`}
     >
