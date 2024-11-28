@@ -4,21 +4,27 @@ import {
   AdjustmentsHorizontalIcon,
   AdjustmentsVerticalIcon,
   QuestionMarkCircleIcon,
-} from "@heroicons/react/24/outline";
+} from "@heroicons/react/24/solid";
 import ThemeControler from "./ThemeControler";
 
 export default function Navigation() {
-  const iconStyles = "w-5 h-5 text-base-content stroke-current";
+  const iconStyles = "w-7 h-7 text-base-content fill-current";
   return (
     <div className="navbar transition">
       <div className="navbar-start"></div>
-      <div className="navbar-center space-x-4">
-        <div className="tooltip tooltip-bottom" data-tip="The Countdown">
+      <div className="navbar-center space-x-8 border border-base-300 rounded-full px-10 py-0.5 bg-base-200 shadow-sm hover:shadow-inner">
+        <div
+          className="tooltip tooltip-bottom flex align-center"
+          data-tip="The Countdown"
+        >
           <Link href="/" className="btn btn-circle btn-sm btn-ghost">
             <ClockIcon className={iconStyles} />
           </Link>
         </div>
-        <div className="tooltip tooltip-bottom" data-tip="Change the countdown">
+        <div
+          className="tooltip tooltip-bottom flex align-center"
+          data-tip="Change the countdown"
+        >
           <Link href="/settings" className="btn btn-circle btn-sm btn-ghost">
             <AdjustmentsVerticalIcon
               className={`${iconStyles} landscape:hidden`}
@@ -28,7 +34,10 @@ export default function Navigation() {
             />
           </Link>
         </div>
-        <div className="tooltip tooltip-bottom" data-tip="Why does this exist?">
+        <div
+          className="tooltip tooltip-bottom flex align-center"
+          data-tip="Why does this exist?"
+        >
           <Link href="/about" className="btn btn-circle btn-sm btn-ghost">
             <QuestionMarkCircleIcon className={iconStyles} />
           </Link>
