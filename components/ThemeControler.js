@@ -7,14 +7,14 @@ export default function ThemeControler() {
   const System = useTheme((state) => state.System);
 
   return (
-    <label className="swap swap-rotate btn btn-circle btn-sm btn-ghost">
+    <label className="swap swap-rotate btn btn-circle btn-sm btn-ghost text-base-content text-opacity-25 hover:text-opacity-100">
       {/* this hidden checkbox controls the state */}
       <input type="checkbox" className="theme-controller" value={Dark} />
 
       {/* sun icon */}
-      <SunIcon className="swap-off w-7 h-7 text-base-content fill-current" />
+      <SunIcon className="swap-off w-7 h-7 fill-current" />
       {/* moon icon */}
-      <MoonIcon className="swap-on w-7 h-7 text-base-content fill-current" />
+      <MoonIcon className="swap-on w-7 h-7 fill-current" />
     </label>
   );
 }

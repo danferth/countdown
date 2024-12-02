@@ -8,7 +8,8 @@ import {
 import ThemeControler from "./ThemeControler";
 
 export default function Navigation() {
-  const iconStyles = "w-7 h-7 text-base-content fill-current";
+  const iconStyles =
+    "w-7 h-7 text-base-content text-opacity-25 hover:text-opacity-100 fill-current";
   return (
     <div className="navbar transition">
       <div className="navbar-start"></div>
