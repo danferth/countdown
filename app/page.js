@@ -1,11 +1,22 @@
 "use client";
-import { Suspense, useState } from "react";
+import { Suspense, useState, useEffect } from "react";
 import Loading from "./loading";
 import Kanye from "../components/Kanye";
 import Clock from "../components/Clock";
 export default function Home() {
   const [quoteVisible, setQuoteVisible] = useState(false);
-
+  const [name, setName] = useState();
+  function getName() {
+    const names = ["Pablo", "Yeezy", "Yeezus", "Mr. West", "Ye", "Kanye"];
+    const randomName = Math.floor(Math.random() * names.length);
+    return names[randomName];
+  }
+  useEffect(() => {
+    setName(getName());
+  }, []);
+  if (!name) {
+    return "...";
+  }
   return (
     <>
       <Suspense fallback={<Loading />}>
@@ -18,12 +29,12 @@ export default function Home() {
           md:portrait:mb-12
           ${quoteVisible ? `lg:mb-12` : `lg:mb-24`}`}
           >
-            {quoteVisible && <Kanye />}
+            {quoteVisible && <Kanye author={name} />}
             <button
               className="btn btn-accent btn-xs text-accent-content btn-outline mx-auto block"
               onClick={() => setQuoteVisible(!quoteVisible)}
             >
-              {quoteVisible ? "Hide Yeezy" : "Show Yeezy"}
+              {quoteVisible ? `Hide ${name}` : `Show ${name}`}
             </button>
           </div>
         </div>

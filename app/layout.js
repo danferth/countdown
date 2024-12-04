@@ -27,12 +27,11 @@ const eduSaBeginner = Edu_SA_Beginner({
 
 export default function RootLayout({ children }) {
   const Light = useTheme((state) => state.Light);
-  useEffect(() => {
-    console.log(`Light: ${Light}`);
-  }, [Light]);
+  const System = useTheme((state) => state.System);
+
   return (
     <html
-      data-theme={Light}
+      data-theme={System ? "" : Light}
       lang="en"
       className={`${chivoMono.variable} ${workSans.variable} ${eduSaBeginner.variable} dark h-full`}
     >

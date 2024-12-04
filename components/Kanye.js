@@ -6,17 +6,10 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import getQuote from "./getQuote";
 
-const Kanye = () => {
+const Kanye = (props) => {
   const [quote, setQuote] = useState();
-  const [name, setName] = useState();
 
-  function getName() {
-    const names = ["Pablo", "Yeezy", "Yeezus", "Mr. West", "Ye", "Kanye"];
-    const randomName = Math.floor(Math.random() * names.length);
-    return names[randomName];
-  }
   useEffect(() => {
-    setName(getName());
     getQuote().then((res) => {
       setQuote(res.quote);
     });
@@ -62,7 +55,7 @@ const Kanye = () => {
             <span className="text-secondary font-black text-xl mr-0.5">
               ...
             </span>
-            <span className="opacity-50">{name}</span>
+            <span className="opacity-50">{props.author}</span>
             <span className="hidden text-secondary font-black text-xl ml-0.5">
               ...
             </span>
