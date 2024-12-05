@@ -1,6 +1,7 @@
 "use client";
 import { useEffect } from "react";
 import useTheme from "@/components/useTheme";
+import { useThemeDetector } from "@/components/useThemeDetector";
 import "@/styles/globals.css";
 import { Chivo_Mono, Work_Sans, Edu_SA_Beginner } from "next/font/google";
 import Navigation from "../components/Navigation";
@@ -27,11 +28,20 @@ const eduSaBeginner = Edu_SA_Beginner({
 
 export default function RootLayout({ children }) {
   const Light = useTheme((state) => state.Light);
-  const System = useTheme((state) => state.System);
+  const Dark = useTheme((state) => state.Dark);
+  const SystemIsDark = useTheme((state) => state.SystemIsDark);
+  const ThemeChanged = useTheme((state) => state.ThemeChanged);
+  const setSystemIsDark = useTheme((state) => state.setSystemIsDark);
+  const isSystemDark = useThemeDetector();
 
+  if (!ThemeChanged) {
+    setSystemIsDark(isSystemDark);
+  }
+  console.log(`SystemIsDark HTML: ${SystemIsDark}`);
+  console.log("rendered");
   return (
     <html
-      data-theme={System ? "" : Light}
+      data-theme={SystemIsDark ? Dark : Light}
       lang="en"
       className={`${chivoMono.variable} ${workSans.variable} ${eduSaBeginner.variable} dark h-full`}
     >
