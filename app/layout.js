@@ -30,18 +30,16 @@ export default function RootLayout({ children }) {
   const Light = useTheme((state) => state.Light);
   const Dark = useTheme((state) => state.Dark);
   const SystemIsDark = useTheme((state) => state.SystemIsDark);
-  const ThemeChanged = useTheme((state) => state.ThemeChanged);
-  const setSystemIsDark = useTheme((state) => state.setSystemIsDark);
-  const isSystemDark = useThemeDetector();
+  // const ThemeChanged = useTheme((state) => state.ThemeChanged);
+  // const setSystemIsDark = useTheme((state) => state.setSystemIsDark);
+  // const isSystemDark = useThemeDetector();
 
-  if (!ThemeChanged) {
-    setSystemIsDark(isSystemDark);
-  }
-  console.log(`SystemIsDark HTML: ${SystemIsDark}`);
-  console.log("rendered");
+  // if (!ThemeChanged) {
+  //   setSystemIsDark(isSystemDark);
+  // }
   return (
     <html
-      data-theme={SystemIsDark ? Dark : Light}
+      data-theme={Light}
       lang="en"
       className={`${chivoMono.variable} ${workSans.variable} ${eduSaBeginner.variable} dark h-full`}
     >

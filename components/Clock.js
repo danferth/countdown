@@ -7,12 +7,12 @@ import { DateTime, Interval } from "luxon";
 
 const Clock = () => {
   const defaultDifference = {
-    years: 0,
-    months: 0,
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
+    years: 10,
+    months: 10,
+    days: 10,
+    hours: 10,
+    minutes: 10,
+    seconds: 10,
   };
   const [destinationMessage, setDestinationMessage] = useState();
   // zustand state to be set from settings page in future

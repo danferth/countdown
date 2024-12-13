@@ -1,16 +1,25 @@
 "use client";
 import { useState, useEffect } from "react";
 import useTheme from "./useTheme";
+import { useThemeDetector } from "./useThemeDetector";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
 export default function ThemeControler() {
   const Dark = useTheme((state) => state.Dark);
-  const Light = useTheme((state) => state.Light);
+  // const Light = useTheme((state) => state.Light);
   const SystemIsDark = useTheme((state) => state.SystemIsDark);
   const setSystemIsDark = useTheme((state) => state.setSystemIsDark);
+  const isSystemDark = useThemeDetector();
+  const ThemeChanged = useTheme((state) => state.ThemeChanged);
   const setThemeChanged = useTheme((state) => state.setThemeChanged);
-  console.log(`SystemIsDark: ${SystemIsDark}`);
+
+  useEffect(() => {
+    !ThemeChanged && setSystemIsDark(isSystemDark);
+  });
+
   const onThemeChange = () => {
-    setThemeChanged(true);
+    if (!ThemeChanged) {
+      setThemeChanged(true);
+    }
     setSystemIsDark(!SystemIsDark);
   };
   return (

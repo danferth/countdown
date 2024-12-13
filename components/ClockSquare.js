@@ -1,3 +1,4 @@
+"use client";
 const ClockSquare = (props) => {
   return (
     <div
