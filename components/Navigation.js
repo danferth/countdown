@@ -6,8 +6,13 @@ import {
   QuestionMarkCircleIcon,
 } from "@heroicons/react/24/solid";
 import ThemeControler from "./ThemeControler";
+import useSettings from "./useSettings";
 
 export default function Navigation() {
+  const countdownComplete = useSettings((state) => state.countdownComplete);
+  const setCountdownComplete = useSettings(
+    (state) => state.setCountdownComplete
+  );
   const iconStyles =
     "w-7 h-7 text-base-content text-opacity-25 hover:text-opacity-100 fill-current";
   return (
@@ -47,7 +52,7 @@ export default function Navigation() {
           <ThemeControler />
         </div>
       </div>
-      <div className="navbar-end">{/* theme switcher button thingy */}</div>
+      <div className="navbar-end"></div>
     </div>
   );
 }

@@ -17,13 +17,17 @@ const Clock = () => {
   const [destinationMessage, setDestinationMessage] = useState();
   // zustand state to be set from settings page in future
   const isRepeat = useSettings((state) => state.isRepeat);
+  const setIsRepeat = useSettings((state) => state.setIsRepeat);
   const repeatDuration = useSettings((state) => state.repeatDuration);
+  const setRepeatDuration = useSettings((state) => state.setRepeatDuration);
   const destination = useSettings((state) => state.destination);
   const difference = useSettings((state) => state.difference);
-
+  const countdownComplete = useSettings((state) => state.countdownComplete);
   const setDestination = useSettings((state) => state.setDestination);
   const setDifference = useSettings((state) => state.setDifference);
-
+  const setCountdownComplete = useSettings(
+    (state) => state.setCountdownComplete
+  );
   const alphabet = ["A", "B", "C", "D", "E", "F"];
 
   function removeZeroValues(obj) {
@@ -51,7 +55,12 @@ const Clock = () => {
       return currentDestination.plus({ weeks: 1 });
     }
   }
-
+  // reset countdown after 30 seconds
+  function resetCountdown() {
+    setIsRepeat(true);
+    setRepeatDuration("yearly");
+    setCountdownComplete(false);
+  }
   useEffect(() => {
     const currentTime = DateTime.now();
     setDestinationMessage(
@@ -70,9 +79,11 @@ const Clock = () => {
       if (isRepeat) {
         setDestination(findNextDestination(repeatDuration, destination));
       } else {
-        setDifference(defaultDifference);
+        setCountdownComplete(true);
+        // setTimeout(resetCountdown, 30000);
       }
     } else if (currentTime < destination) {
+      countdownComplete && setCountdownComplete(false);
       setTimeout(
         () =>
           setDifference(

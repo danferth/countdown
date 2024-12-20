@@ -291,3 +291,53 @@ body > footer {
 .text_1A {
   @apply text-2xl tracking-tighter sm:tracking-normal font-medium;
 }
+
+/* confetti styles vor CompleteCountdown */
+
+#confetti {
+  /* background: radial-gradient(
+    circle at center,
+    hsl(320deg, 15%, 15%),
+    hsl(320deg, 15%, 15%),
+    hsl(320deg, 0%, 2%) 50%
+  ); */
+  overscroll-behavior-x: none;
+  overscroll-behavior-y: none;
+}
+#confetti {
+  font-family: sans-serif;
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  text-align: center;
+  overflow-x: hidden;
+  color: gold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#confetti h1 {
+  font-size: max(35px, 7vw);
+  background-image: radial-gradient(
+    ellipse closest-corner,
+    rgb(5, 233, 5) 0%,
+    rgb(14, 206, 14) 24%,
+    rgb(20, 151, 20) 78%,
+    green 100%
+  );
+  color: transparent;
+  -webkit-background-clip: text;
+  z-index: 1;
+}
+canvas {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}

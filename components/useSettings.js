@@ -19,14 +19,18 @@ const useSettings = create((set) => ({
   setDestination: (newDestination) => set({ destination: newDestination }),
 
   difference: {
-    years: 0,
-    months: 0,
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
+    years: 10,
+    months: 10,
+    days: 10,
+    hours: 10,
+    minutes: 10,
+    seconds: 10,
   },
   setDifference: (newDifference) => set({ difference: newDifference }),
+
+  countdownComplete: false,
+  setCountdownComplete: (newCountdownComplete) =>
+    set({ countdownComplete: newCountdownComplete }),
 }));
 
 export default useSettings;

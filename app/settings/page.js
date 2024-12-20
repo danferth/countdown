@@ -20,6 +20,10 @@ export default function Settings() {
   const repeatDuration = useSettings((state) => state.repeatDuration);
   const setRepeatDuration = useSettings((state) => state.setRepeatDuration);
 
+  const countdownComplete = useSettings((state) => state.countdownComplete);
+  const setCountdownComplete = useSettings(
+    (state) => state.setCountdownComplete
+  );
   // useTheme
   const Light = useTheme((state) => state.Light);
   const Dark = useTheme((state) => state.Dark);
@@ -42,14 +46,17 @@ export default function Settings() {
     setDestinationDateInput(destinationDate);
     setDestinationTimeInput(destinationTime);
     setDestination(DateTime.fromISO(`${destinationDate}T${destinationTime}`));
+    setCountdownComplete(false);
   }
   function onChangeIsRepeat(repeat) {
     setIsRepeatInput(repeat);
     setIsRepeat(repeat);
+    setCountdownComplete(false);
   }
   function onChangeRepeatDuration(duration) {
     setRepeatDurationInput(duration);
     setRepeatDuration(duration);
+    setCountdownComplete(false);
   }
 
   function onChangeThemeLight(event, lightTheme) {
