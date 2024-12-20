@@ -1,7 +1,5 @@
 "use client";
-import { useEffect } from "react";
 import useTheme from "@/components/useTheme";
-import { useThemeDetector } from "@/components/useThemeDetector";
 import "@/styles/globals.css";
 import { Chivo_Mono, Work_Sans, Edu_SA_Beginner } from "next/font/google";
 import Navigation from "../components/Navigation";
@@ -28,15 +26,7 @@ const eduSaBeginner = Edu_SA_Beginner({
 
 export default function RootLayout({ children }) {
   const Light = useTheme((state) => state.Light);
-  const Dark = useTheme((state) => state.Dark);
-  const SystemIsDark = useTheme((state) => state.SystemIsDark);
-  // const ThemeChanged = useTheme((state) => state.ThemeChanged);
-  // const setSystemIsDark = useTheme((state) => state.setSystemIsDark);
-  // const isSystemDark = useThemeDetector();
 
-  // if (!ThemeChanged) {
-  //   setSystemIsDark(isSystemDark);
-  // }
   return (
     <html
       data-theme={Light}
