@@ -187,3 +187,51 @@ const CompleteCountdown = () => {
 };
 
 export default CompleteCountdown;
+
+/*
+To remove a canvas created with Three.js, you need to do a few things: 
+1. Stop the Rendering Loop: 
+If you have a rendering loop running (e.g., using requestAnimationFrame), stop it to prevent further updates to the canvas. 
+cancelAnimationFrame(animationFrameId); // Assuming you stored the ID from requestAnimationFrame
+
+2. Dispose of Three.js Objects: 
+Properly dispose of Three.js objects to free up memory. 
+// Dispose of the renderer
+renderer.dispose(); 
+
+// Dispose of scenes, geometries, materials, textures, etc.
+scene.traverse(function (object) {
+    if (object.isMesh) {
+        object.geometry.dispose();
+        object.material.dispose();
+    }
+});
+
+3. Remove the Canvas Element: 
+Finally, remove the canvas element from the DOM. 
+const canvas = renderer.domElement; // Get the canvas element
+canvas.parentNode.removeChild(canvas); // Remove it from its parent
+
+Complete Example: 
+import * as THREE from 'three';
+
+// ... Your Three.js setup ...
+
+function cleanup() {
+    cancelAnimationFrame(animationFrameId);
+
+    renderer.dispose();
+
+    scene.traverse(function (object) {
+        if (object.isMesh) {
+            object.geometry.dispose();
+            object.material.dispose();
+        }
+    });
+
+    const canvas = renderer.domElement;
+    canvas.parentNode.removeChild(canvas);
+}
+
+// ... Call cleanup() when you want to remove the canvas ...
+*/
