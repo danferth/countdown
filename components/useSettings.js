@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { DateTime } from "luxon";
 const useSettings = create((set) => ({
-  isRepeat: false,
+  isRepeat: true,
   setIsRepeat: (newRepeat) => set({ isRepeat: newRepeat }),
 
   repeatDuration: "weekly",
@@ -9,10 +9,10 @@ const useSettings = create((set) => ({
     set({ repeatDuration: newRepeatDuration }),
 
   destination: DateTime.fromObject({
-    years: 2024,
-    months: 12,
-    days: 24,
-    hours: 12,
+    years: 2025,
+    months: 1,
+    days: 3,
+    hours: 17,
     minutes: 0,
     seconds: 0,
   }),
