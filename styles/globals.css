@@ -261,7 +261,7 @@ body > footer {
   @apply text-8xl font-black ml-5;
 }
 .text_2A {
-  @apply -ml-4 text-lg tracking-tighter sm:tracking-normal font-normal inline-block transform -rotate-90;
+  @apply -ml-6 text-lg tracking-tighter sm:tracking-normal font-normal inline-block transform -rotate-90;
 }
 /* 2B */
 .grid_2B {

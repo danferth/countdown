@@ -16,7 +16,7 @@ export default function Home() {
   const [name, setName] = useState("");
   useEffect(() => {
     setName(getName());
-  }, []);
+  });
 
   return (
     <>
