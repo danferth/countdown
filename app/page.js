@@ -48,7 +48,8 @@ export default function Home() {
       setCountdown(newCountdown.squares);
     }
     if (countdownComplete) {
-      setTimeout(() => resetCountdown(), 5000);
+      // setTimeout(() => resetCountdown(), 5000);
+      return;
     } else {
       const timeoutId = setTimeout(
         () => setup(isRepeat, destination, repeatDuration),
