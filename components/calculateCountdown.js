@@ -46,7 +46,6 @@ export function calculateCountdown(isRepeat, destination, repeatDuration) {
   let message = "";
 
   if (currentTime > destination) {
-    console.log("curent time is grater than than destination");
     if (isRepeat) {
       newDestination = findNextDestination(repeatDuration, destination);
       difference = Interval.fromDateTimes(currentTime, newDestination)
@@ -58,16 +57,13 @@ export function calculateCountdown(isRepeat, destination, repeatDuration) {
         newDestination,
         repeatDuration
       );
-      console.log(`destination`, destination);
     } else {
       countdownComplete = true;
     }
   } else if (currentTime < destination) {
     if (newDestination !== undefined) {
       newDestination = undefined;
-      console.log(`newDestination`, newDestination);
     }
-    console.log("curent time is less than destination");
     difference = Interval.fromDateTimes(currentTime, destination)
       .toDuration(["years", "months", "days", "hours", "minutes", "seconds"])
       .toObject();

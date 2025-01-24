@@ -38,6 +38,7 @@ const CompleteCountdown = () => {
         f && o(f),
         m.render(M, R);
     }
+
     const a = 5,
       r = 0.15,
       s = 1800,

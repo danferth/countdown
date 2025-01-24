@@ -3,45 +3,80 @@ import { useState, useEffect } from "react";
 import useSettings from "../components/useSettings";
 import Kanye from "../components/Kanye";
 import Clock from "../components/Clock";
-import CompleteCountdown from "../components/CompleteCountdown";
+// import CompleteCountdown from "../components/CompleteCountdown";
+import Complete from "../components/complete";
+import { calculateCountdown } from "../components/calculateCountdown";
 
 export default function Home() {
-  function getName() {
-    const names = ["Pablo", "Yeezy", "Yeezus", "Mr. West", "Ye", "Kanye"];
-    const randomName = Math.floor(Math.random() * names.length);
-    return names[randomName];
-  }
+  const [countdown, setCountdown] = useState();
+  const [message, setMessage] = useState("");
+  // zustand state to be set from settings page in future
+  const isRepeat = useSettings((state) => state.isRepeat);
+  const repeatDuration = useSettings((state) => state.repeatDuration);
+
+  const destination = useSettings((state) => state.destination);
+  const setDestination = useSettings((state) => state.setDestination);
+
   const countdownComplete = useSettings((state) => state.countdownComplete);
-  const [quoteVisible, setQuoteVisible] = useState(false);
-  const [name, setName] = useState("");
+  const setCountdownComplete = useSettings(
+    (state) => state.setCountdownComplete
+  );
+  const setIsRepeat = useSettings((state) => state.setIsRepeat);
+  const setRepeatDuration = useSettings((state) => state.setRepeatDuration);
+
   useEffect(() => {
-    setName(getName());
-  });
+    function resetCountdown() {
+      setCountdownComplete(false);
+      setIsRepeat(true);
+      setRepeatDuration("yearly");
+    }
+    function setup(isRepeat, destination, repeatDuration) {
+      let newCountdown = calculateCountdown(
+        isRepeat,
+        destination,
+        repeatDuration
+      );
+      if (newCountdown.newDestination) {
+        setDestination(newCountdown.newDestination);
+      }
+      if (newCountdown.countdownComplete) {
+        setCountdownComplete(newCountdown.countdownComplete);
+      }
+      if (newCountdown.message !== message) {
+        setMessage(newCountdown.message);
+      }
+      setCountdown(newCountdown.squares);
+    }
+    if (countdownComplete) {
+      setTimeout(() => resetCountdown(), 5000);
+    } else {
+      const timeoutId = setTimeout(
+        () => setup(isRepeat, destination, repeatDuration),
+        1000
+      );
+      return () => clearTimeout(timeoutId);
+    }
+  }, [
+    countdown,
+    destination,
+    isRepeat,
+    repeatDuration,
+    message,
+    setDestination,
+    countdownComplete,
+    setCountdownComplete,
+    setIsRepeat,
+    setRepeatDuration,
+  ]);
 
   return (
     <>
       {countdownComplete ? (
-        <CompleteCountdown />
+        <Complete />
       ) : (
         <div className="w-full h-full flex flex-col px-4 py-2.5">
-          <Clock />
-          <div
-            className={` w-full shrink transition flex flex-col justify-center mb-4
-          sm:mb-0 sm:landscape:mt-4
-          sm:portrait:mb-14
-          md:portrait:mb-12
-          ${quoteVisible ? `lg:mb-12` : `lg:mb-24`}`}
-          >
-            {quoteVisible && name && <Kanye author={name} />}
-            {name && (
-              <button
-                className="btn btn-accent btn-xs text-accent-content btn-outline mx-auto block"
-                onClick={() => setQuoteVisible(!quoteVisible)}
-              >
-                {quoteVisible ? `Hide ${name}` : `Show ${name}`}
-              </button>
-            )}
-          </div>
+          <Clock countdown={countdown} message={message} />
+          <Kanye />
         </div>
       )}
     </>
