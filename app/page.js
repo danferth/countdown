@@ -71,15 +71,13 @@ export default function Home() {
   ]);
 
   return (
-    <>
+    <div className="w-full h-full flex flex-col px-4 py-2.5">
       {countdownComplete ? (
-        <Complete />
+        <Complete message={message} />
       ) : (
-        <div className="w-full h-full flex flex-col px-4 py-2.5">
-          <Clock countdown={countdown} message={message} />
-          <Kanye />
-        </div>
+        <Clock countdown={countdown} message={message} />
       )}
-    </>
+      <Kanye />
+    </div>
   );
 }

@@ -24,15 +24,11 @@ function findNextDestination(repeatDuration, currentDestination) {
 // message under countdown
 function createDestinationMessage(isRepeat, destination, repeatDuration) {
   return `${
-    !isRepeat ? "One Time" : ""
-  } Countdown to ${destination.toLocaleString(
+    !isRepeat ? "A one time" : ""
+  } countdown to ${destination.toLocaleString(
     DateTime.DATE_HUGE
   )} @ ${destination.toLocaleString(DateTime.TIME_SIMPLE)}${
-    isRepeat
-      ? `, Repeating ${repeatDuration
-          .charAt(0)
-          .toUpperCase()}${repeatDuration.slice(1)}`
-      : ""
+    isRepeat ? `, repeating ${repeatDuration}` : ""
   }`;
 }
 
@@ -59,6 +55,9 @@ export function calculateCountdown(isRepeat, destination, repeatDuration) {
       );
     } else {
       countdownComplete = true;
+      message = `Countdown to ${destination.toLocaleString(
+        DateTime.DATE_HUGE
+      )} @ ${destination.toLocaleString(DateTime.TIME_SIMPLE)} has completed!`;
     }
   } else if (currentTime < destination) {
     if (newDestination !== undefined) {
