@@ -11,7 +11,7 @@ const Complete = (props) => {
   }, []);
   return (
     <div className="w-full h-full flex flex-col justify-center items-center">
-      <h1 className="text-3xl text-primary font-black animate-ping -rotate-12 mb-2.5 text-center">
+      <h1 className="text-3xl text-primary font-black -mb-8 text-center animate-pulse -rotate-6 ">
         Hoo Feaking Yah!
       </h1>
 
