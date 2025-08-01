@@ -14,7 +14,7 @@ export default function Navigation() {
     (state) => state.setCountdownComplete
   );
   const iconStyles =
-    "w-7 h-7 text-base-content text-opacity-25 hover:text-opacity-100 fill-current";
+    "w-7 h-7 text-base-content/25 hover:text-base-content fill-current";
   return (
     <div className="navbar transition">
       <div className="navbar-start"></div>

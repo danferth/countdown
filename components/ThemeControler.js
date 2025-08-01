@@ -23,7 +23,7 @@ export default function ThemeControler() {
     setSystemIsDark(!SystemIsDark);
   };
   return (
-    <label className="swap swap-rotate btn btn-circle btn-sm btn-ghost text-base-content text-opacity-25 hover:text-opacity-100">
+    <label className="swap swap-rotate btn btn-circle btn-sm btn-ghost text-base-content/25 hover:text-base-content">
       {/* this hidden checkbox controls the state */}
       <input
         type="checkbox"
