@@ -13,7 +13,7 @@ body > footer {
   @apply col-span-1 sm:col-span-2 md:col-span-1 lg:col-span-2;
 }
 .container_6A {
-  @apply py-2 bg-primary text-primary-content;
+  @apply py-2 bg-red-500 text-red-50;
 }
 .digit_6A {
   @apply text-3xl tracking-tighter sm:tracking-normal font-semibold sm:text-4xl;
@@ -26,7 +26,7 @@ body > footer {
   @apply col-span-1 sm:col-span-2 md:col-span-1 lg:col-span-2;
 }
 .container_6B {
-  @apply py-2 bg-primary text-primary-content;
+  @apply py-2 bg-red-500 text-red-50;
 }
 .digit_6B {
   @apply text-3xl tracking-tighter sm:tracking-normal font-semibold sm:text-4xl;
@@ -39,7 +39,7 @@ body > footer {
   @apply col-span-2 sm:row-span-2 md:row-span-1 lg:row-span-2;
 }
 .container_6C {
-  @apply py-3 bg-primary text-primary-content;
+  @apply py-3 bg-red-500 text-red-50;
 }
 .digit_6C {
   @apply text-9xl font-black ml-5;
@@ -52,7 +52,7 @@ body > footer {
   @apply col-span-2 sm:col-start-3 sm:col-span-2 md:col-start-1 lg:col-start-3 lg:col-span-2;
 }
 .container_6D {
-  @apply py-2 bg-secondary text-secondary-content;
+  @apply py-2 bg-green-500 text-green-50;
 }
 .digit_6D {
   @apply text-4xl tracking-tighter sm:tracking-normal font-light;
@@ -65,7 +65,7 @@ body > footer {
   @apply col-span-1 sm:col-start-3 sm:col-span-1 md:col-start-1 lg:col-start-3 lg:col-span-1;
 }
 .container_6E {
-  @apply flex-col py-2.5 bg-secondary text-secondary-content;
+  @apply flex-col py-2.5 bg-green-500 text-green-50;
 }
 .digit_6E {
   @apply text-3xl tracking-tighter sm:tracking-normal font-medium;
@@ -78,7 +78,7 @@ body > footer {
   @apply col-span-1 sm:col-start-4 sm:col-span-1 md:col-start-2 lg:col-start-4 lg:col-span-1;
 }
 .container_6F {
-  @apply flex-col py-2.5 bg-secondary text-secondary-content;
+  @apply flex-col py-2.5 bg-green-500 text-green-50;
 }
 .digit_6F {
   @apply text-3xl tracking-tighter sm:tracking-normal font-medium;
@@ -93,7 +93,7 @@ body > footer {
   @apply col-span-2 sm:col-span-4 md:col-span-2 lg:col-span-4;
 }
 .container_5A {
-  @apply py-2 bg-primary text-primary-content;
+  @apply py-2 bg-red-500 text-red-50;
 }
 .digit_5A {
   @apply text-4xl tracking-tighter sm:tracking-normal font-semibold;
@@ -106,7 +106,7 @@ body > footer {
   @apply col-span-2 sm:row-span-2 md:row-span-1 lg:row-span-2;
 }
 .container_5B {
-  @apply py-3 bg-primary text-primary-content;
+  @apply py-3 bg-red-500 text-red-50;
 }
 .digit_5B {
   @apply text-9xl font-black ml-5;
@@ -119,7 +119,7 @@ body > footer {
   @apply col-span-2 sm:col-start-3 sm:col-span-2 md:col-start-1 lg:col-start-3 lg:col-span-2;
 }
 .container_5C {
-  @apply py-2 bg-secondary text-secondary-content;
+  @apply py-2 bg-green-500 text-green-50;
 }
 .digit_5C {
   @apply text-4xl tracking-tighter sm:tracking-normal font-light;
@@ -132,7 +132,7 @@ body > footer {
   @apply col-span-1 sm:col-start-3 sm:col-span-1 md:col-start-1 lg:col-start-3 lg:col-span-1;
 }
 .container_5D {
-  @apply flex-col py-2.5 bg-secondary text-secondary-content;
+  @apply flex-col py-2.5 bg-green-500 text-green-50;
 }
 .digit_5D {
   @apply text-3xl tracking-tighter sm:tracking-normal font-medium;
@@ -145,7 +145,7 @@ body > footer {
   @apply col-span-1 sm:col-start-4 sm:col-span-1 md:col-start-2 lg:col-start-4 lg:col-span-1;
 }
 .container_5E {
-  @apply flex-col py-2.5 bg-secondary text-secondary-content;
+  @apply flex-col py-2.5 bg-green-500 text-green-50;
 }
 .digit_5E {
   @apply text-3xl tracking-tighter sm:tracking-normal font-medium;
@@ -160,7 +160,7 @@ body > footer {
   @apply col-span-2 sm:row-span-2 md:row-span-1 lg:row-span-2;
 }
 .container_4A {
-  @apply py-3 bg-primary text-primary-content;
+  @apply py-3 bg-red-500 text-red-50;
 }
 .digit_4A {
   @apply text-9xl font-black ml-5;
@@ -173,7 +173,7 @@ body > footer {
   @apply col-span-2 sm:col-start-3 sm:col-span-2 md:col-start-1 lg:col-start-3 lg:col-span-2;
 }
 .container_4B {
-  @apply py-2 bg-secondary text-secondary-content;
+  @apply py-2 bg-green-500 text-green-50;
 }
 .digit_4B {
   @apply text-4xl tracking-tighter sm:tracking-normal font-light;
@@ -186,7 +186,7 @@ body > footer {
   @apply col-span-1 sm:col-start-3 sm:col-span-1 md:col-start-1 lg:col-start-3 lg:col-span-1;
 }
 .container_4C {
-  @apply flex-col py-2.5 bg-secondary text-secondary-content;
+  @apply flex-col py-2.5 bg-green-500 text-green-50;
 }
 .digit_4C {
   @apply text-3xl tracking-tighter sm:tracking-normal font-bold;
@@ -199,7 +199,7 @@ body > footer {
   @apply col-span-1 sm:col-start-4 sm:col-span-1 md:col-start-2 lg:col-start-4 lg:col-span-1;
 }
 .container_4D {
-  @apply flex-col py-2.5 bg-secondary text-secondary-content;
+  @apply flex-col py-2.5 bg-green-500 text-green-50;
 }
 .digit_4D {
   @apply text-3xl tracking-tighter sm:tracking-normal font-bold;
@@ -214,7 +214,7 @@ body > footer {
   @apply col-span-2 sm:row-span-2 md:row-span-1 lg:row-span-2;
 }
 .container_3A {
-  @apply py-3 bg-primary text-primary-content;
+  @apply py-3 bg-red-500 text-red-50;
 }
 .digit_3A {
   @apply text-9xl font-black ml-5;
@@ -227,7 +227,7 @@ body > footer {
   @apply col-span-1 sm:col-span-2 md:col-span-1 lg:col-span-2;
 }
 .container_3B {
-  @apply py-2 bg-secondary text-secondary-content;
+  @apply py-2 bg-green-500 text-green-50;
 }
 .digit_3B {
   @apply text-2xl tracking-tighter sm:tracking-normal font-thin sm:text-4xl;
@@ -240,7 +240,7 @@ body > footer {
   @apply col-span-1 sm:col-span-2 md:col-span-1 lg:col-span-2;
 }
 .container_3C {
-  @apply py-2 bg-secondary text-secondary-content;
+  @apply py-2 bg-green-500 text-green-50;
 }
 .digit_3C {
   @apply text-2xl tracking-tighter sm:tracking-normal font-black sm:text-4xl;
@@ -255,7 +255,7 @@ body > footer {
   @apply col-span-1 sm:col-span-2 md:col-span-1 lg:col-span-2;
 }
 .container_2A {
-  @apply py-3 bg-primary text-primary-content;
+  @apply py-3 bg-red-500 text-red-50;
 }
 .digit_2A {
   @apply text-8xl font-black ml-5;
@@ -268,7 +268,7 @@ body > footer {
   @apply col-span-1 sm:col-span-2 md:col-span-1 lg:col-span-2;
 }
 .container_2B {
-  @apply flex-col py-3 bg-secondary text-secondary-content;
+  @apply flex-col py-3 bg-green-500 text-green-50;
 }
 .digit_2B {
   @apply text-8xl tracking-tighter sm:tracking-normal font-black mr-0;
@@ -283,7 +283,7 @@ body > footer {
   @apply col-span-2 sm:col-span-4 md:col-span-2 lg:col-span-4;
 }
 .container_1A {
-  @apply flex-col px-4 py-6 bg-primary text-primary-content;
+  @apply flex-col px-4 py-6 bg-red-500 text-red-50;
 }
 .digit_1A {
   @apply text-9xl tracking-tighter sm:tracking-normal font-black;
