@@ -87,7 +87,7 @@ const Kanye = () => {
       )}
       {name !== "" && (
         <button
-          className="btn btn-accent btn-xs text-accent-content btn-outline mx-auto block"
+          className="btn btn-accent btn-xs btn-outline mx-auto block"
           onClick={() => setQuoteVisible(!quoteVisible)}
         >
           {quoteVisible ? `Hide ${name}` : `Show ${name}`}
