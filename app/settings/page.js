@@ -380,7 +380,7 @@ const ThemeExample = (props) => {
               >
                 <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"></path>
               </svg>{" "}
-              <div className="flex-grow text-sm">
+              <div className="grow text-sm">
                 {props.theme.charAt(0).toUpperCase() + props.theme.slice(1)}
               </div>{" "}
               <div className="flex h-full shrink-0 flex-wrap gap-1">
@@ -410,7 +410,7 @@ const ThemeExampleWrapper = (props) => {
       </div>
       <ul
         tabIndex={0}
-        className="menu dropdown-content bg-base-200 rounded-box z-[1] w-full p-2 shadow"
+        className="menu dropdown-content bg-base-200 rounded-box z-1 w-full p-2 shadow-sm"
       >
         {props.children}
       </ul>

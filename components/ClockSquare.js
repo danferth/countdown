@@ -7,7 +7,7 @@ const ClockSquare = (props) => {
       } rounded-md shadow-base-300 shadow-md transition`}
     >
       <div
-        className={`h-full overflow-hidden rounded-md shadow-sm shadow-base-300 transition`}
+        className={`h-full overflow-hidden rounded-md shadow-xs shadow-base-300 transition`}
       >
         <div
           className={`${

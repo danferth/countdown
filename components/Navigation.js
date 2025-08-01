@@ -18,7 +18,7 @@ export default function Navigation() {
   return (
     <div className="navbar transition">
       <div className="navbar-start"></div>
-      <div className="navbar-center space-x-8 border border-base-300 rounded-full px-10 py-0.5 bg-base-200 shadow-sm hover:shadow-inner">
+      <div className="navbar-center space-x-8 border border-base-300 rounded-full px-10 py-0.5 bg-base-200 shadow-xs hover:shadow-inner">
         <div
           className="tooltip tooltip-bottom flex align-center"
           data-tip="The Countdown"
