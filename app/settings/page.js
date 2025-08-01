@@ -210,6 +210,14 @@ export default function Settings() {
                   onClick={(event) => onChangeThemeLight(event, "light")}
                 />
                 <ThemeExample
+                  theme="caramellatte"
+                  onClick={(event) => onChangeThemeLight(event, "caramellatte")}
+                />
+                <ThemeExample
+                  theme="silk"
+                  onClick={(event) => onChangeThemeLight(event, "silk")}
+                />
+                <ThemeExample
                   theme="cupcake"
                   onClick={(event) => onChangeThemeLight(event, "cupcake")}
                 />
@@ -291,6 +299,10 @@ export default function Settings() {
                 <ThemeExample
                   theme="dark"
                   onClick={(event) => onChangeThemeDark(event, "dark")}
+                />
+                <ThemeExample
+                  theme="abyss"
+                  onClick={(event) => onChangeThemeDark(event, "abyss")}
                 />
                 <ThemeExample
                   theme="synthwave"
